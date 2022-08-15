@@ -14,7 +14,7 @@ handler.all = async function (m) {
 	} finally {
 		
         //global.bg = await (await fetch(img)).buffer()
-		global.doc = pickRandom(["application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.presentationml.presentation", "application/msword", "application/pdf"])
+		global.doc = pickRandom(["application/vnd.openxmlformats-officedocument.presentationml.presentation","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/vnd.openxmlformats-officedocument.wordprocessingml.document","application/vnd.ms-excel","application/msword","application/pdf","text/rtf"])
 		
 		// Module 
 		global.fetch = import('node-fetch')
