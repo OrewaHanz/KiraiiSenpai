@@ -53,17 +53,44 @@ handler.all = async function (m) {
 		}
 		global.fakeig = {
          contextInfo: { externalAdReply: { showAdAttribution: true,
-            mediaUrl: "https://Instagram.com/wudysoft.2",
+            mediaUrl: sig,
             mediaType: "VIDEO",
-            description: "https://Instagram.com/wudysoft.2",
+            description: sig,
             title: wm,
             body: bottime,
             thumbnailUrl: pp,
             sourceUrl: sgc
     }
     } }
+    // Fake 🤥
+		global.fpayment = {
+  "key": {
+    "remoteJid": "6283128734012-1625042431@g.us",
+    "fromMe": false,
+    "id": "BAE595C600522C9C",
+    "participant": "0@s.whatsapp.net"
+  },
+  "message": {
+    "requestPaymentMessage": {
+      "currencyCodeIso4217": "IDR",
+      "amount1000": "27100",
+      "requestFrom": "0@s.whatsapp.net",
+      "noteMessage": {
+        "extendedTextMessage": {
+          "text": "\nHay Kak :> 👋 \n"
+        }
+      },
+      "expiryTimestamp": "0",
+      "amount": {
+        "value": "27100",
+        "offset": 1000,
+        "currencyCode": "IDR"
+      }
+    }
+  }
+}
 		// Fake 🤥
-		global.ftroli = { key: {participant : '0@s.whatsapp.net'}, message: { orderMessage: { itemCount: 2022, status: 1, surface: 1, message: bottime, orderTitle: wm, sellerJid: '0@s.whatsapp.net' } } }
+		global.ftroli = { key: {participant : '0@s.whatsapp.net'}, message: { orderMessage: { itemCount: fsizedoc, status: 1, surface: 1, message: botdate, orderTitle: wm, sellerJid: '0@s.whatsapp.net' } } }
 		global.fkontak = { key: {participant : '0@s.whatsapp.net'}, message: { 'contactMessage': { 'displayName': wm, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${wm},;;;\nFN:${wm},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`, 'jpegThumbnail': fs.readFileSync('./thumbnail.jpg'), thumbnail: fs.readFileSync('./thumbnail.jpg'),sendEphemeral: true}}}
         global.fvn = {
             key: {
@@ -71,7 +98,7 @@ handler.all = async function (m) {
             message: { 
                "audioMessage": {
                         "mimetype":"audio/ogg; codecs=opus",
-                        "seconds": "999999999999",
+                        "seconds": fsizedoc,
                         "ptt": "true"
                                }
                              } 
@@ -79,7 +106,7 @@ handler.all = async function (m) {
                             global.fvid = {
             key: {
                  participant : '0@s.whatsapp.net'},
-            message: { "videoMessage": { "title":wm, "h": `Hmm`,'seconds': '99999', 'caption': bottime, 'jpegThumbnail': fs.readFileSync('./thumbnail.jpg')}}
+            message: { "videoMessage": { "title":wm, "h": `Hmm`,'seconds': fsizedoc, 'caption': bottime, 'jpegThumbnail': fs.readFileSync('./thumbnail.jpg')}}
                             }
                             
                
@@ -119,8 +146,8 @@ handler.all = async function (m) {
                            },
                            "title": wm, //Kasih namalu 
                            "description": bottime, 
-                           "currencyCode": "USD",
-                           "priceAmount1000": "20000000",
+                           "currencyCode": "IDR",
+                           "priceAmount1000": fsizedoc,
                            "retailerId": "Ghost",
                            "productImageCount": 1
                        },
@@ -161,7 +188,7 @@ handler.all = async function (m) {
                         "videoMessage": { 
                         "title": wm,
                         "h": `Hmm`,
-                        'seconds': '999999999', 
+                        'seconds': fsizedoc, 
                         'gifPlayback': 'true', 
                         'caption': bottime,
                         'jpegThumbnail': fs.readFileSync('./thumbnail.jpg')
