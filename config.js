@@ -65,10 +65,12 @@ global.APIKeys = {
  'https://zenzapis.xyz' : 'f9fccfcff1'
 }
 
-/*Lolkey*/
+/*Lolhuman*/
 global.lolkey = 'sonelganz'
 /*Xteam*/
 global.xteamkey = 'NezukoTachibana281207'
+/*Xcoders*/
+global.xckey = 'BOhjM2hUVn'
 
 /*List Lolkey
 'sonelganz'
