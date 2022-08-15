@@ -90,7 +90,22 @@ await conn.relayMessage(m.chat,
 "footerText": wm, 
 "thumbnail": Buffer.alloc(0),
 "surface": 'CATALOG' }},{quoted: ftroli})
-  
+}
+
+if (command == 'mengpay') {
+if (!text) throw `Teksnya?`
+await conn.relayMessage(m.chat,  {
+    requestPaymentMessage: {
+      currencyCodeIso4217: 'USD',
+      amount1000: fsizedoc,
+      requestFrom: m.sender,
+      noteMessage: {
+      extendedTextMessage: {
+      text: text,
+      contextInfo: {
+      externalAdReply: {
+      showAdAttribution: true
+      }}}}}}, {})
 }
 
 if (command == 'menggrup') {
@@ -182,7 +197,7 @@ if (tema == 'aud') {
   }
   }
   }
-handler.command = ['sewabot', 'mengproduk', 'mengorder', 'mengfake', 'menggrup']
+handler.command = ['sewabot', 'mengproduk', 'mengorder', 'mengfake', 'menggrup', 'mengpay']
 
 export default handler
 
