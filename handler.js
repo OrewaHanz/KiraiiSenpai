@@ -2,7 +2,7 @@ import { smsg } from './lib/simple.js'
 import { format } from 'util'
 import { fileURLToPath } from 'url'
 import path, { join } from 'path'
-import { unwatchFile, watchFile } from 'fs'
+import { unwatchFile, watchFile, readFileSync } from 'fs'
 import chalk from 'chalk'
 import fetch from 'node-fetch'
 
@@ -46,6 +46,7 @@ export async function handler(chatUpdate) {
               if (!('afkReason' in user)) user.afkReason = ''
               if (!('autolevelup' in user)) user.autolevelup = false
               if (!('banned' in user)) user.banned = false
+              if (!('note' in user)) user.note = ''
               if (!('job' in user)) user.job = ''
               if (!('kingdom' in user)) user.kingdom = true
               if (!('misi' in user)) user.misi = ''
@@ -357,7 +358,6 @@ export async function handler(chatUpdate) {
               if (!isNumber(user.net)) user.net = 0
               if (!isNumber(user.nila)) user.nila = 0
               if (!isNumber(user.nilabakar)) user.nilabakar = 0
-              if (!isNumber(user.note)) user.note = 'Kosong'
               if (!isNumber(user.ojekk)) user.ojekk = 0
               if (!isNumber(user.oporayam)) user.oporayam = 0
               if (!isNumber(user.orca)) user.orca = 0
@@ -752,7 +752,7 @@ export async function handler(chatUpdate) {
                     net: 0,
                     nila: 0,
                     nilabakar: 0,
-                    note: 'Kosong',
+                    note: '',
                     ojekk: 0,
                     oporayam: 0,
                     orca: 0,
@@ -1268,12 +1268,14 @@ export async function participantsUpdate({ id, participants, action }) {
             if (chat.welcome) {
                 let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
                 for (let user of participants) {
-                    let pp = './src/avatar_contact.png'
-                    let ppgc = './src/avatar_contact.png'
+                    let pp
+                    let ppgc
                     try {
                         pp = await this.profilePictureUrl(user, 'image')
                         ppgc = await this.profilePictureUrl(id, 'image')
-                    } catch (e) {
+                    } catch {
+                    pp = hwaifu.getRandom()
+                    ppgc = hwaifu.getRandom()
                     } finally {
                        text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || '👋 Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || 'unknow') :
                             (chat.sBye || this.bye || conn.bye || '👋 Bye, @user!')).replace('@user', await this.getName(user))
@@ -1281,11 +1283,27 @@ export async function participantsUpdate({ id, participants, action }) {
   let gettext = await fetch('https://raw.githubusercontent.com/fawwaz37/random/main/bijak.txt')
   let restext = await gettext.text()
   let katarandom = restext.split('\n')
-  this.sendHydrated2(id, text, wm + '\n\n' + botdate, action === 'add' ? pp : pp, sgc, (action == 'add' ? 'Hinata Group' : 'Nitip Gorengan'), null, null, [
-      ['🎀 Menu', '/menu'],
-      ['🪄 Test', '/ping'],
-      ['Ok 🎉\n\n' + katarandom.getRandom() + '\n\n', '...']
-    ], null, false, { mentions: [user] })
+  let names = await this.getName(user)
+  let resmoji = JSON.parse(readFileSync('./json/emoji.json'))
+  let emojis = resmoji.emoji
+  
+     let mim_ = ["application/vnd.openxmlformats-officedocument.presentationml.presentation","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/vnd.openxmlformats-officedocument.wordprocessingml.document","application/vnd.ms-excel","application/msword","application/pdf","text/rtf"]
+     let lin_ = ["https://www.youtube.com","https://www.instagram.com","https://www.facebook.com"]
+let wmwel = `\n\n📮 *Welcome:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner`
+let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner`
+    await conn.sendButton(id, text, action == 'add' ? wmwel : wmlea, Buffer.alloc(0), [[action == 'add' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'add' ? 'tes' : 'Huuu'], [action == 'add' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'add' ? '/menulist' : 'Huuu']], null, { quoted: ftoko, mimetype: mim_.getRandom(), fileName: ucapan, pageCount: fpagedoc, fileLength: fsizedoc, seconds: fsizedoc, jpegThumbnail: await( await fetch(ppgc)).buffer(), contextInfo: {
+    mentionedJid: [user],
+          externalAdReply :{
+          showAdAttribution: true,
+    mediaUrl: lin_.getRandom(),
+    mediaType: 2,
+    description: wm, 
+    title: '👋 Hai, ' + names + ' ' + ucapan,
+    body: botdate,
+    thumbnail: await( await fetch(pp)).buffer(),
+    sourceUrl: sgc
+     }}
+  })
                     }
                 }
             }
@@ -1295,10 +1313,12 @@ export async function participantsUpdate({ id, participants, action }) {
         case 'demote':
            if (!text)
                 text = (chat.sDemote || this.sdemote || conn.sdemote || '@user *is no longer Admin*')
-            text = text.replace('@user', '@' + participants[0].split('@')[0])
-            if (chat.detect) return this.sendHydrated(id, text.trim(), wm, logo, null, null, nomorown, nameown, [
-      ['🔖Ok', 'Huuu']
-    ], null)
+            if (chat.detect) return this.sendButton(id, text, wm, logo, [
+            ['🔖Ok', 'Huuu'],
+            ['Matikan Fitur ini', '/disable detect']
+      ], null, {
+                mentions: [user]
+            })
             break
     }
 }
@@ -1312,8 +1332,9 @@ export async function groupsUpdate(groupsUpdate) {
     for (const groupUpdate of groupsUpdate) {
         const id = groupUpdate.id
         if (!id) continue
-        let chats = global.db.data.chats[id], text = ''
-        if (!chats?.detect) continue
+        let chats = global.db.data.chats[id] || {}
+        let text = ''
+        if (!chats.detect) continue
             if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || '*Description has been changed to*\n@desc').replace('@desc', groupUpdate.desc)
             if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || '*Subject has been changed to*\n@subject').replace('@subject', groupUpdate.subject)
             if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || '*Icon has been changed to*').replace('@icon', groupUpdate.icon)
@@ -1324,7 +1345,8 @@ export async function groupsUpdate(groupsUpdate) {
             if (groupUpdate.restrict == false) text = (chats.sRestrictOff || this.sRestrictOff || conn.sRestrictOff || '*Group has been only admin!*')
             if (!text) continue
             this.sendHydrated(id, text.trim(), wm, logo, null, null, nomorown, nameown, [
-      ['🔖Ok', 'Huuu']
+      ['🔖Ok', 'Huuu'],
+      ['Matikan Fitur ini', '/disable detect']
     ], null)
     }
 }
