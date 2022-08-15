@@ -315,8 +315,66 @@ await conn.sendButton(m.chat, caption, wm, imgr + command, [
 }
 }
 
+if (command == 'r34') {
+if (!args[0]) {
+let caption = `*MASUKKAN TEKS:*
+Contoh:\n${usedPrefix + command} name |query
+
+*List:*
+${htjava} tag
+${htjava} name
+${htjava} id
+${htjava} limit
+${htjava} pid
+${htjava} cid
+`
+
+await conn.sendButton(m.chat, caption, wm, imgr + command, [
+                ['Ok', `Huuu`]
+            ], m)
+            }
+            if (one) {
+let res = 'https://r34-json-api.herokuapp.com/posts?' + args[0] + '=' + one
+let jso = await fetch(res)
+let json = await jso.json()
+let caption = `*Result:*
+${usedPrefix + command} ${one}
+
+*height:* ${json[0].height}
+*score:* ${json[0].score}
+*file_url:* ${json[0].file_url}
+*sample_url:* ${json[0].sample_url}
+*sample_width:* ${json[0].sample_width}
+*sample_height:* ${json[0].sample_height}
+*preview_url:* ${json[0].preview_url}
+*rating:* ${json[0].rating}
+*tags:* ${Array.from(json[0].tags)}
+*id:* ${json[0].id}
+*width:* ${json[0].width}
+*change:* ${json[0].change}
+*md5:* ${json[0].md5}
+*creator_id:* ${json[0].creator_id}
+*has_children:* ${json[0].has_children}
+*created_at:* ${json[0].created_at}
+*status:* ${json[0].status}
+*source:* ${json[0].source}
+*has_notes:* ${json[0].has_notes}
+*has_comments:* ${json[0].has_comments}
+*preview_width:* ${json[0].preview_width}
+*preview_height:* ${json[0].preview_height}
+*comments_url:* ${json[0].comments_url}
+*type:* ${json[0].type}
+*creator_url:* ${json[0].creator_url}
+`
+await conn.sendButton(m.chat, caption, wm, json[0].file_url, [
+                ['Next', `${usedPrefix + command} |${one}|${two}`],
+                ['To Sticker', `${usedPrefix}s`]
+            ], m)
+} else throw 'Masukkan Query'
 }
-handler.command = handler.help = ['cts', 'museum']
+
+}
+handler.command = handler.help = ['cts', 'museum', 'r34']
 handler.tags = ['internet']
 
 export default handler
