@@ -37,7 +37,7 @@ handler.all = async function (m) {
 		// externalAdReply atau text with thumbnail. gatau bahasa Inggris? coba translate!
 		global.adReply = {
 			contextInfo: {
-				forwardingScore: 9999,
+				forwardingScore: fsizedoc,
 				//isForwarded: true, // ini biar ada tulisannya diteruskan berkali-kali, jika ingin di hilangkan ganti true menjadi false
 				externalAdReply: { // Bagian ini sesuka kalian berkreasi :'v
                     showAdAttribution: true,
@@ -65,7 +65,7 @@ handler.all = async function (m) {
     // Fake 🤥
 		global.fpayment = {
   "key": {
-    "remoteJid": "6283128734012-1625042431@g.us",
+    "remoteJid": "0@s.whatsapp.net",
     "fromMe": false,
     "id": "BAE595C600522C9C",
     "participant": "0@s.whatsapp.net"
@@ -73,17 +73,17 @@ handler.all = async function (m) {
   "message": {
     "requestPaymentMessage": {
       "currencyCodeIso4217": "IDR",
-      "amount1000": "27100",
+      "amount1000": fsizedoc,
       "requestFrom": "0@s.whatsapp.net",
       "noteMessage": {
         "extendedTextMessage": {
           "text": "\nHay Kak :> 👋 \n"
         }
       },
-      "expiryTimestamp": "0",
+      "expiryTimestamp": fsizedoc,
       "amount": {
-        "value": "27100",
-        "offset": 1000,
+        "value": fsizedoc,
+        "offset": fsizedoc,
         "currencyCode": "IDR"
       }
     }

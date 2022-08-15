@@ -258,7 +258,7 @@ await conn.sendButton(m.chat, caption, wm, imgr + command, [
             ], m)
 }
 if (args[0] == 'med') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |Hello`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |Medium|Query`)
 let res = 'https://collectionapi.metmuseum.org/public/collection/v1/search?medium=' + one + '&q=' + two
 let gas = await fetch(res)
     let json = await gas.json()
@@ -286,7 +286,7 @@ await conn.sendButton(m.chat, caption, wm, imgr + command, [
             ], m)
 }
 if (args[0] == 'loc') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |Hello`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |Location|Query`)
 let res = 'https://collectionapi.metmuseum.org/public/collection/v1/search?geoLocation=' + one + '&q=' + two
 let gas = await fetch(res)
     let json = await gas.json()
@@ -300,7 +300,7 @@ await conn.sendButton(m.chat, caption, wm, imgr + command, [
             ], m)
 }
 if (args[0] == 'time') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |Hello`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |Awal|Akhir|Query`)
 let res = 'https://collectionapi.metmuseum.org/public/collection/v1/search?dateBegin=' + one + '&dateEnd=' + two + '&q=' + three
 let gas = await fetch(res)
     let json = await gas.json()
