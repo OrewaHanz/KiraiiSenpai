@@ -126,7 +126,7 @@ export async function handler(chatUpdate) {
               if (!isNumber(user.bawal)) user.bawal = 0
               if (!isNumber(user.bawalbakar)) user.bawalbakar = 0
               if (!isNumber(user.bayam)) user.bayam = 0
-              if (!isNumber(user.berlian)) user.berlian = 10000
+              if (!isNumber(user.berlian)) user.berlian = 100
               if (!isNumber(user.bibitanggur)) user.bibitanggur = 0
               if (!isNumber(user.bibitapel)) user.bibitapel = 0
               if (!isNumber(user.bibitjeruk)) user.bibitjeruk = 0
@@ -332,7 +332,7 @@ export async function handler(chatUpdate) {
               if (!isNumber(user.lelebakar)) user.lelebakar = 0
               if (!isNumber(user.leleg)) user.leleg = 0
               if (!isNumber(user.level)) user.level = 0
-              if (!isNumber(user.limit)) user.limit = 10
+              if (!isNumber(user.limit)) user.limit = 100
               if (!isNumber(user.limitjoinfree)) user.limitjoinfree = 1
               if (!isNumber(user.lion)) user.lion = 0
               if (!isNumber(user.lionexp)) user.lionexp = 0
@@ -525,7 +525,7 @@ export async function handler(chatUpdate) {
                     bawal: 0,
                     bawalbakar: 0,
                     bayam: 0,
-                    berlian: 100000000,
+                    berlian: 100,
                     bibitanggur: 0,
                     bibitapel: 0,
                     bibitjeruk: 0,
@@ -602,7 +602,7 @@ export async function handler(chatUpdate) {
                     horselastfeed: 0,
                     ikan: 0,
                     ikanbakar: 0,
-                    intelligence: 10,
+                    intelligence: 100,
                     iron: 0,
                     jagung: 0,
                     jagungbakar: 0,
@@ -773,7 +773,7 @@ export async function handler(chatUpdate) {
                     pillhero: 0,
                     pisang: 0,
                     pointxp: 0,
-                    potion: 10,
+                    potion: 100,
                     premium: false,
                     premiumTime: 0,
                     ramuan: 0,
@@ -928,14 +928,14 @@ export async function handler(chatUpdate) {
                 if (!('self' in settings)) settings.self = false
                 if (!('autoread' in settings)) settings.autoread = true
                 if (!('restrict' in settings)) settings.restrict = true
-                if (!('jadibot' in settings)) settings.jadibot = false
+                if (!('jadibot' in settings)) settings.jadibot = true
                 if (!('autorestart' in settings)) settings.autorestart = true
                 if (!('restartDB' in settings)) settings.restartDB = 0
              
             } else global.db.data.settings[this.user.jid] = {
                 self: false,
                 autoread: true,
-                jadibot: false,
+                jadibot: true,
                 restrict: true,
                 autorestart: true,
                 restartDB: 0
@@ -1313,7 +1313,7 @@ let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam pen
         case 'demote':
            if (!text)
                 text = (chat.sDemote || this.sdemote || conn.sdemote || '@user *is no longer Admin*')
-            if (chat.detect) return this.sendButton(id, text, wm, logo, [
+            if (chat.detect) return this.sendButton(id, text, wm, hwaifu.getRandom(), [
             ['🔖Ok', 'Huuu'],
             ['Matikan Fitur ini', '/disable detect']
       ], null, {
@@ -1344,10 +1344,12 @@ export async function groupsUpdate(groupsUpdate) {
             if (groupUpdate.restrict == true) text = (chats.sRestrictOn || this.sRestrictOn || conn.sRestrictOn || '*Group has been all participants!*')
             if (groupUpdate.restrict == false) text = (chats.sRestrictOff || this.sRestrictOff || conn.sRestrictOff || '*Group has been only admin!*')
             if (!text) continue
-            this.sendHydrated(id, text.trim(), wm, logo, null, null, nomorown, nameown, [
-      ['🔖Ok', 'Huuu'],
-      ['Matikan Fitur ini', '/disable detect']
-    ], null)
+            this.sendButton(id, text, wm, hwaifu.getRandom(), [
+            ['🔖Ok', 'Huuu'],
+            ['Matikan Fitur ini', '/disable detect']
+      ], null, {
+                mentions: [user]
+            })
     }
 }
 
@@ -1383,36 +1385,38 @@ Untuk menghapus pesan yang dikirim BOT, reply pesan dengan perintah
 dfail
  */
 global.dfail = (type, m, conn) => {
+let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+    let name = await conn.getName(who)
     let msg = {
         rowner: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Perintah ini hanya dapat digunakan oleh *OWWNER* !`,
+👋 Hai *${name} @${who.split("@")[0]}*, Perintah ini hanya dapat digunakan oleh *OWWNER* !`,
         owner: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Perintah ini hanya dapat digunakan oleh *Owner Bot* !`,
+👋 Hai *${name} @${who.split("@")[0]}*, Perintah ini hanya dapat digunakan oleh *Owner Bot* !`,
         mods: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Perintah ini hanya dapat digunakan oleh *Moderator* !`,
+👋 Hai *${name} @${who.split("@")[0]}*, Perintah ini hanya dapat digunakan oleh *Moderator* !`,
         premium: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Perintah ini hanya untuk member *Premium* !`,
+👋 Hai *${name} @${who.split("@")[0]}*, Perintah ini hanya untuk member *Premium* !`,
         group: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Perintah ini hanya dapat digunakan di grup !`,
+👋 Hai *${name} @${who.split("@")[0]}*, Perintah ini hanya dapat digunakan di grup !`,
         private: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Perintah ini hanya dapat digunakan di Chat Pribadi !`,
+👋 Hai *${name} @${who.split("@")[0]}*, Perintah ini hanya dapat digunakan di Chat Pribadi !`,
         admin: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Perintah ini hanya untuk *Admin* grup !`,
+👋 Hai *${name} @${who.split("@")[0]}*, Perintah ini hanya untuk *Admin* grup !`,
         botAdmin: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Jadikan bot sebagai *Admin* untuk menggunakan perintah ini !`,
+👋 Hai *${name} @${who.split("@")[0]}*, Jadikan bot sebagai *Admin* untuk menggunakan perintah ini !`,
         unreg: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar Hinata.18* !`,
+👋 Hai *${name} @${who.split("@")[0]}*, Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar Hinata.18* !`,
         nsfw: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} NSFW tidak aktif, Silahkan hubungi Team Bot Discussion untuk mengaktifkan fitur ini !`,
+👋 Hai *${name} @${who.split("@")[0]}*, NSFW tidak aktif, Silahkan hubungi Team Bot Discussion untuk mengaktifkan fitur ini !`,
         rpg: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan fitur ini !`,
+👋 Hai *${name} @${who.split("@")[0]}*, RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan fitur ini !`,
         restrict: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Fitur ini di *disable* !`
+👋 Hai *${name} @${who.split("@")[0]}*, Fitur ini di *disable* !`
     }[type]
-    if (msg) return conn.sendHydrated(m.chat, msg, wm, logo, null, null, nomorown, nameown, [
-      ['🔖 Ok', 'Huuu'],
-      ['ℹ️ Tes', 'Tes']
-    ], null)
+    if (msg) return this.sendButton(m.chat, msg, wm, hwaifu.getRandom(), [
+            ['🔖 Ok', 'Huuu'],
+            ['ℹ️ Me', '.menu']
+      ], m, { mentions: this.parseMention(msg) })
 }
 
 let file = global.__filename(import.meta.url, true)
