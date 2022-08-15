@@ -3,7 +3,7 @@ let handler = async(m, { conn, text, usedPrefix, command }) => {
 let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
 
 if (command == 'ppcp2') {
-        let res = await fetch(`https://api-xcoders.xyz/api/random/ppcouple?apikey=xcoders`)
+        let res = await fetch(`https://api-xcoders.xyz/api/random/ppcouple?apikey=${global.xckey}`)
 if (res.status != 200) throw await res.text()
 let json = await res.json()
 if (!json.status) throw json

@@ -45,7 +45,7 @@ water`)
   let thm = args[0]
   let text1 = args.slice(1).join(' ')
   
-  let images = `https://api-xcoders.xyz/api/ephoto/${thm}?text=${text1}&apikey=xcoders`
+  let images = `https://api-xcoders.xyz/api/ephoto/${thm}?text=${text1}&apikey=${global.xckey}`
   let caption = `*⎔┉━「 ${command} 」━┉⎔*
 🤠 *Query* : ${thm}`
   await conn.sendButton(m.chat, caption, wm, images, [

@@ -14,7 +14,7 @@ let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentM
   let text1 = urut[1]
   let text2 = urut[2]
   
-        let images = `https://api-xcoders.xyz/api/ephoto/${thm}?text=${text1}&text2=${text2}&apikey=xcoders`
+        let images = `https://api-xcoders.xyz/api/ephoto/${thm}?text=${text1}&text2=${text2}&apikey=${global.xckey}`
   let caption = `*⎔┉━「 ${command} 」━┉⎔*
 🤠 *Query* : ${thm}`
   await conn.sendButton(m.chat, caption, wm, images, [

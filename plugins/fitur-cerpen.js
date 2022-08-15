@@ -5,7 +5,7 @@ let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? c
         let name = await conn.getName(who)
 try {
 if (!text) return m.reply(`Contoh penggunaan ${usedPrefix}${command} cinta\nList:\ncinta\nhoror\njawa\nlucu\nperjuangan\nsahabat`)
-  let json = await fetch(`https://api-xcoders.xyz/api/random/cerpen/${text}?apikey=xcoders`)
+  let json = await fetch(`https://api-xcoders.xyz/api/random/cerpen/${text}?apikey=${global.xckey}`)
   let jsons = await json.json()
         let x = jsons.result
   let caption = `${htki} *${x.title}* ${htka}

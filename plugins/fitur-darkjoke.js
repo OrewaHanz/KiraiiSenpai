@@ -7,7 +7,7 @@ let name = await conn.getName(who)
 let caption = `*⎔┉━「 Random darkjoke 」━┉⎔*
 🤠 *Query* : ${command}`
 try {
-        let images = `https://api-xcoders.xyz/api/random/darkjoke?apikey=xcoders`
+        let images = `https://api-xcoders.xyz/api/random/darkjoke?apikey=${global.xckey}`
         await conn.sendButton(m.chat, caption, wm, images, [['Darkjoke','.darkjoke']] , m, {
             fileLength: fsizedoc,
             seconds: fsizedoc,
