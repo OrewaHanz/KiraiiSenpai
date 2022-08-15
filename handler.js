@@ -1313,7 +1313,7 @@ let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam pen
         case 'demote':
            if (!text)
                 text = (chat.sDemote || this.sdemote || conn.sdemote || '@user *is no longer Admin*')
-            if (chat.detect) return this.sendButton(id, text, wm, hwaifu.getRandom(), [
+            if (chat.detect) return this.sendButton(id, text.trim(), wm, hwaifu.getRandom(), [
             ['🔖Ok', 'Huuu'],
             ['Matikan Fitur ini', '/disable detect']
       ], null, {
@@ -1344,12 +1344,10 @@ export async function groupsUpdate(groupsUpdate) {
             if (groupUpdate.restrict == true) text = (chats.sRestrictOn || this.sRestrictOn || conn.sRestrictOn || '*Group has been all participants!*')
             if (groupUpdate.restrict == false) text = (chats.sRestrictOff || this.sRestrictOff || conn.sRestrictOff || '*Group has been only admin!*')
             if (!text) continue
-            this.sendButton(id, text, wm, hwaifu.getRandom(), [
+            this.sendButton(id, text.trim(), wm, hwaifu.getRandom(), [
             ['🔖Ok', 'Huuu'],
             ['Matikan Fitur ini', '/disable detect']
-      ], null, {
-                mentions: [user]
-            })
+      ], null)
     }
 }
 
