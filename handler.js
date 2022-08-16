@@ -1313,17 +1313,18 @@ let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam pen
         case 'demote':
            if (!text)
                 text = (chat.sDemote || this.sdemote || conn.sdemote || '@user *is no longer Admin*')
-            if (chat.detect) return this.sendButton(id, text, wm, hwaifu.getRandom(), [['🔖Ok', 'Huuu'],
-            ['Matikan Fitur ini', '/disable detect']], null, { quoted: ftoko, fileLength: fsizedoc, contextInfo: {
+            if (chat.detect) return this.send2ButtonDoc(id, text, wm, hwaifu.getRandom(), '🔖 Ok', 'Huuu',
+      'ℹ️ Matikan Fitur ini', '/disable detect' null, {
+      fileLength: fsizedoc,
+      contextInfo: {
     mentionedJid: [user],
-          externalAdReply :{
-          showAdAttribution: true,
+    externalAdReply :{
     mediaUrl: sig,
     mediaType: 2,
     description: wm, 
     title: '👋 Hai, ' + ucapan,
     body: botdate,
-    thumbnail: Buffer.alloc(0),
+    thumbnail: readFileSync('./thumbnail.jpg'),
     sourceUrl: sgc
      }}
   })
@@ -1418,16 +1419,16 @@ ${nmsr} RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan
         restrict: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
 ${nmsr} Fitur ini di *disable* !`
     }[type]
-    if (msg) return conn.sendButton(m.chat, msg, wm, hwaifu.getRandom(), [['🔖 Ok', 'Huuu'],
-      ['ℹ️ Tes', 'Tes']], m, { quoted: ftoko, mentions: conn.parseMention(msg), fileLength: fsizedoc, contextInfo: {
-          externalAdReply :{
-          showAdAttribution: true,
+    if (msg) return conn.send2ButtonDoc(m.chat, msg, wm, hwaifu.getRandom(), '🔖 Ok', 'Huuu',
+      'ℹ️ Tes', 'Tes' m, {
+  mentions: conn.parseMention(msg),
+  contextInfo: { externalAdReply :{
     mediaUrl: sig,
     mediaType: 2,
     description: wm, 
     title: '👋 Hai, ' + ucapan,
     body: botdate,
-    thumbnail: Buffer.alloc(0),
+    thumbnail: readFileSync('./thumbnail.jpg'),
     sourceUrl: sgc
      }}
   })
