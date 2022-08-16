@@ -7,14 +7,20 @@ import moment from 'moment-timezone'
 let handler = m => m
 handler.all = async function (m) {
     let name = await conn.getName(m.sender) 
-	let pp = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+	let pp
 	try {
 		pp = await this.profilePictureUrl(m.sender, 'image')
 	} catch (e) {
+	pp = hwaifu.getRandom()
 	} finally {
 		
-        //global.bg = await (await fetch(img)).buffer()
-		global.doc = pickRandom(["application/vnd.openxmlformats-officedocument.presentationml.presentation","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/vnd.openxmlformats-officedocument.wordprocessingml.document","application/vnd.ms-excel","application/msword","application/pdf","text/rtf"])
+        // Doc
+        let pdoc = ["application/vnd.openxmlformats-officedocument.presentationml.presentation","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/vnd.openxmlformats-officedocument.wordprocessingml.document","application/vnd.ms-excel","application/msword","application/pdf","text/rtf"]
+		global.doc = pdoc.getRandom()
+		
+		// Fake Random
+        let pft = ["fpayment","ftroli","fkontak","fvn","fvid","ftextt","fliveLoc","fliveLoc2","ftoko","fdocs","fgclink","fgif"]
+		global.fakes = pft.getRandom()
 		
 		// Module 
 		global.fetch = import('node-fetch')
@@ -224,6 +230,3 @@ function ucapan() {
     return res
 }
 
-function pickRandom(list) {
-  return list[Math.floor(list.length * Math.random())]
-}
