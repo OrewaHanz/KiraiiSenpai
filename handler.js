@@ -1383,9 +1383,7 @@ Untuk menghapus pesan yang dikirim BOT, reply pesan dengan perintah
 dfail
  */
 global.dfail = (type, m, conn) => {
-    let nm = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-    let nms = await conn.getName(nm)
-    let nmsr = `👋 Hai *${nms} @${nm.split("@")[0]}*, `
+    let nmsr = `👋 Hai *@${m.sender.split("@")[0]}*, `
     let msg = {
         rowner: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
 ${nmsr} Perintah ini hanya dapat digunakan oleh *OWWNER* !`,
@@ -1413,7 +1411,7 @@ ${nmsr} RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan
 ${nmsr} Fitur ini di *disable* !`
     }[type]
     if (msg) return conn.sendButton(m.chat, msg, wm, logo, [['🔖 Ok', 'Huuu'],
-      ['ℹ️ Tes', 'Tes']], m, { mentions: this.parseMention(nmsr) })
+      ['ℹ️ Tes', 'Tes']], null, { mentions: conn.parseMention(msg) })
 }
 
 let file = global.__filename(import.meta.url, true)
