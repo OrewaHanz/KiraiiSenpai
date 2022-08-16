@@ -48,12 +48,12 @@ handler.all = async function (m) {
 				externalAdReply: { // Bagian ini sesuka kalian berkreasi :'v
                     showAdAttribution: true,
 					title: global.ucapan,
-					body: "Hallo " + name,
+					body: "👋 Hallo " + name,
 					mediaUrl: sgc,
-					description: bottime,
+					description: botdate,
 					previewType: "PHOTO",
 					thumbnail: await (await fetch(pp)).buffer(),
-					sourceUrl: "https://github.com/AyGemuy",					
+					sourceUrl: sgh			
 				}
 			}
 		}
@@ -61,10 +61,10 @@ handler.all = async function (m) {
          contextInfo: { externalAdReply: { showAdAttribution: true,
             mediaUrl: sig,
             mediaType: "VIDEO",
-            description: sig,
+            description: "Follow: " + sig,
             title: wm,
-            body: bottime,
-            thumbnailUrl: pp,
+            body: botdate,
+            thumbnailUrl: await (await fetch(pp)).buffer(),
             sourceUrl: sgc
     }
     } }
@@ -78,19 +78,19 @@ handler.all = async function (m) {
   },
   "message": {
     "requestPaymentMessage": {
-      "currencyCodeIso4217": "IDR",
+      "currencyCodeIso4217": "USD",
       "amount1000": fsizedoc,
       "requestFrom": "0@s.whatsapp.net",
       "noteMessage": {
         "extendedTextMessage": {
-          "text": "\nHay Kak :> 👋 \n" + ucapan
+          "text": "\nHay Kak :> 👋 \n"
         }
       },
       "expiryTimestamp": fsizedoc,
       "amount": {
         "value": fsizedoc,
         "offset": fsizedoc,
-        "currencyCode": "IDR"
+        "currencyCode": "USD"
       }
     }
   }
