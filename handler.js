@@ -1291,7 +1291,7 @@ export async function participantsUpdate({ id, participants, action }) {
      let lin_ = ["https://www.youtube.com","https://www.instagram.com","https://www.facebook.com"]
 let wmwel = `\n\n📮 *Welcome:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner`
 let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner`
-    await conn.sendButton(id, text, action == 'add' ? wmwel : wmlea, Buffer.alloc(0), [[action == 'add' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'add' ? 'tes' : 'Huuu'], [action == 'add' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'add' ? '/menulist' : 'Huuu']], null, { quoted: ftoko, mimetype: mim_.getRandom(), fileName: ucapan, pageCount: fpagedoc, fileLength: fsizedoc, seconds: fsizedoc, jpegThumbnail: await( await fetch(ppgc)).buffer(), contextInfo: {
+    await conn.sendButton(id, text, action == 'add' ? wmwel : wmlea, Buffer.alloc(0), [[action == 'add' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'add' ? 'tes' : 'Huuu'], [action == 'add' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'add' ? '/menulist' : 'Huuu']], null, { quoted: fpayment, mimetype: mim_.getRandom(), fileName: ucapan, pageCount: fpagedoc, fileLength: fsizedoc, seconds: fsizedoc, jpegThumbnail: await( await fetch(ppgc)).buffer(), contextInfo: {
     mentionedJid: [user],
           externalAdReply :{
           showAdAttribution: true,
@@ -1313,12 +1313,8 @@ let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam pen
         case 'demote':
            if (!text)
                 text = (chat.sDemote || this.sdemote || conn.sdemote || '@user *is no longer Admin*')
-            if (chat.detect) return this.sendButton(id, text, wm, logo, [
-            ['🔖Ok', 'Huuu'],
-            ['Matikan Fitur ini', '/disable detect']
-      ], null, {
-                mentions: [user]
-            })
+            if (chat.detect) return
+            this.send2ButtonDoc(id, text.trim(), author, '🔖 Ok', 'Huuu', 'ℹ️ Matikan Fitur ini', '.disable detect', fpayment, adReply)
             break
     }
 }
@@ -1344,10 +1340,7 @@ export async function groupsUpdate(groupsUpdate) {
             if (groupUpdate.restrict == true) text = (chats.sRestrictOn || this.sRestrictOn || conn.sRestrictOn || '*Group has been all participants!*')
             if (groupUpdate.restrict == false) text = (chats.sRestrictOff || this.sRestrictOff || conn.sRestrictOff || '*Group has been only admin!*')
             if (!text) continue
-            this.sendHydrated(id, text.trim(), wm, logo, null, null, nomorown, nameown, [
-      ['🔖Ok', 'Huuu'],
-      ['Matikan Fitur ini', '/disable detect']
-    ], null)
+            this.send2ButtonDoc(id, text.trim(), author, '🔖 Ok', 'Huuu', 'ℹ️ Menu', '.menu', fpayment, adReply)
     }
 }
 
@@ -1383,36 +1376,35 @@ Untuk menghapus pesan yang dikirim BOT, reply pesan dengan perintah
 dfail
  */
 global.dfail = (type, m, conn) => {
+    let nmsr = `👋 Hai *@${m.sender.split("@")[0]}*, `
     let msg = {
         rowner: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Perintah ini hanya dapat digunakan oleh *OWWNER* !`,
+${nmsr} Perintah ini hanya dapat digunakan oleh *OWWNER* !`,
         owner: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Perintah ini hanya dapat digunakan oleh *Owner Bot* !`,
+${nmsr} Perintah ini hanya dapat digunakan oleh *Owner Bot* !`,
         mods: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Perintah ini hanya dapat digunakan oleh *Moderator* !`,
+${nmsr} Perintah ini hanya dapat digunakan oleh *Moderator* !`,
         premium: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Perintah ini hanya untuk member *Premium* !`,
+${nmsr} Perintah ini hanya untuk member *Premium* !`,
         group: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Perintah ini hanya dapat digunakan di grup !`,
+${nmsr} Perintah ini hanya dapat digunakan di grup !`,
         private: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Perintah ini hanya dapat digunakan di Chat Pribadi !`,
+${nmsr} Perintah ini hanya dapat digunakan di Chat Pribadi !`,
         admin: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Perintah ini hanya untuk *Admin* grup !`,
+${nmsr} Perintah ini hanya untuk *Admin* grup !`,
         botAdmin: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Jadikan bot sebagai *Admin* untuk menggunakan perintah ini !`,
+${nmsr} Jadikan bot sebagai *Admin* untuk menggunakan perintah ini !`,
         unreg: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar Hinata.18* !`,
+${nmsr} Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar Hinata.18* !`,
         nsfw: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} NSFW tidak aktif, Silahkan hubungi Team Bot Discussion untuk mengaktifkan fitur ini !`,
+${nmsr} NSFW tidak aktif, Silahkan hubungi Team Bot Discussion untuk mengaktifkan fitur ini !`,
         rpg: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan fitur ini !`,
+${nmsr} RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan fitur ini !`,
         restrict: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Fitur ini di *disable* !`
+${nmsr} Fitur ini di *disable* !`
     }[type]
-    if (msg) return conn.sendHydrated(m.chat, msg, wm, logo, null, null, nomorown, nameown, [
-      ['🔖 Ok', 'Huuu'],
-      ['ℹ️ Tes', 'Tes']
-    ], null)
+    if (msg) return
+    conn.send2ButtonDoc(m.chat, msg, author, '🔖 Ok', 'Huuu', 'ℹ️ Menu', '.menu', fpayment, adReply)
 }
 
 let file = global.__filename(import.meta.url, true)
