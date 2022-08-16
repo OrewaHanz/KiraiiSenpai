@@ -1314,7 +1314,7 @@ let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam pen
            if (!text)
                 text = (chat.sDemote || this.sdemote || conn.sdemote || '@user *is no longer Admin*')
             if (chat.detect) return this.send2ButtonDoc(id, text, wm, hwaifu.getRandom(), '🔖 Ok', 'Huuu',
-      'ℹ️ Matikan Fitur ini', '/disable detect' null, {
+      'ℹ️ Matikan Fitur ini', '/disable detect', null, {
       contextInfo: {
     externalAdReply :{
     mediaUrl: sig,
@@ -1322,7 +1322,7 @@ let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam pen
     description: wm, 
     title: '👋 Hai, ' + ucapan,
     body: botdate,
-    thumbnail: Buffer.alloc(0),
+    thumbnail: await( await fetch(pp)).buffer(),
     sourceUrl: sgc
      }}
   })
@@ -1418,14 +1418,14 @@ ${nmsr} RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan
 ${nmsr} Fitur ini di *disable* !`
     }[type]
     if (msg) return conn.send2ButtonDoc(m.chat, msg, wm, hwaifu.getRandom(), '🔖 Ok', 'Huuu',
-      'ℹ️ Tes', 'Tes' m, { quoted: fkontak,
+      'ℹ️ Tes', 'Tes', m, { quoted: fkontak,
   contextInfo: { externalAdReply :{
     mediaUrl: sig,
     mediaType: 2,
     description: wm, 
     title: '👋 Hai, ' + ucapan,
     body: botdate,
-    thumbnail: Buffer.alloc(0),
+    thumbnail: await( await fetch(pp)).buffer(),
     sourceUrl: sgc
      }}
   })
