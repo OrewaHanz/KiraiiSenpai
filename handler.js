@@ -1313,7 +1313,7 @@ let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam pen
         case 'demote':
            if (!text)
                 text = (chat.sDemote || this.sdemote || conn.sdemote || '@user *is no longer Admin*')
-            if (chat.detect) return this.sendButton(id, text, wm, logo, [['🔖Ok', 'Huuu'],
+            if (chat.detect) return this.sendButton(id, text, wm, hwaifu.getRandom(), [['🔖Ok', 'Huuu'],
             ['Matikan Fitur ini', '/disable detect']], null, { quoted: ftoko, fileLength: fsizedoc, contextInfo: {
     mentionedJid: [user],
           externalAdReply :{
@@ -1323,7 +1323,7 @@ let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam pen
     description: wm, 
     title: '👋 Hai, ' + ucapan,
     body: botdate,
-    thumbnail: await( await fetch(hwaifu.getRandom())).buffer(),
+    thumbnail: Buffer.alloc(0),
     sourceUrl: sgc
      }}
   })
@@ -1418,7 +1418,7 @@ ${nmsr} RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan
         restrict: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
 ${nmsr} Fitur ini di *disable* !`
     }[type]
-    if (msg) return conn.sendButton(m.chat, msg, wm, logo, [['🔖 Ok', 'Huuu'],
+    if (msg) return conn.sendButton(m.chat, msg, wm, hwaifu.getRandom(), [['🔖 Ok', 'Huuu'],
       ['ℹ️ Tes', 'Tes']], m, { quoted: ftoko, mentions: conn.parseMention(msg), fileLength: fsizedoc, contextInfo: {
           externalAdReply :{
           showAdAttribution: true,
@@ -1427,7 +1427,7 @@ ${nmsr} Fitur ini di *disable* !`
     description: wm, 
     title: '👋 Hai, ' + ucapan,
     body: botdate,
-    thumbnail: await( await fetch(hwaifu.getRandom())).buffer(),
+    thumbnail: Buffer.alloc(0),
     sourceUrl: sgc
      }}
   })
