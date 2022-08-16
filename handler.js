@@ -1322,7 +1322,7 @@ let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam pen
     description: wm, 
     title: '👋 Hai, ' + ucapan,
     body: botdate,
-    thumbnail: await( await fetch(pp)).buffer(),
+    thumbnail: Buffer.alloc(0),
     sourceUrl: sgc
      }}
   })
@@ -1418,14 +1418,14 @@ ${nmsr} RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan
 ${nmsr} Fitur ini di *disable* !`
     }[type]
     if (msg) return conn.send2ButtonDoc(m.chat, msg, wm, hwaifu.getRandom(), '🔖 Ok', 'Huuu',
-      'ℹ️ Tes', 'Tes', m, { quoted: fkontak,
+      'ℹ️ Tes', 'Tes', null, { quoted: fkontak,
   contextInfo: { externalAdReply :{
     mediaUrl: sig,
     mediaType: 2,
     description: wm, 
     title: '👋 Hai, ' + ucapan,
     body: botdate,
-    thumbnail: await( await fetch(pp)).buffer(),
+    thumbnail: Buffer.alloc(0),
     sourceUrl: sgc
      }}
   })
