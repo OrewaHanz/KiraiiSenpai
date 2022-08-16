@@ -1313,16 +1313,14 @@ let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam pen
         case 'demote':
            if (!text)
                 text = (chat.sDemote || this.sdemote || conn.sdemote || '@user *is no longer Admin*')
-            if (chat.detect) return this.send2ButtonDoc(id, text, wm, hwaifu.getRandom(), '🔖 Ok', 'Huuu',
-      'ℹ️ Matikan Fitur ini', '/disable detect', null, {
-      contextInfo: {
-    externalAdReply :{
+            if (chat.detect) return this.send2ButtonDoc(id, text, author, '🔖 Ok', 'Huuu', 'ℹ️ Matikan Fitur ini', '.disable detect', fakes, {
+  contextInfo: { externalAdReply :{
     mediaUrl: sig,
     mediaType: 2,
     description: wm, 
     title: '👋 Hai, ' + ucapan,
     body: botdate,
-    thumbnail: Buffer.alloc(0),
+    thumbnail: await( await fetch(logo)).buffer(),
     sourceUrl: sgc
      }}
   })
@@ -1351,10 +1349,17 @@ export async function groupsUpdate(groupsUpdate) {
             if (groupUpdate.restrict == true) text = (chats.sRestrictOn || this.sRestrictOn || conn.sRestrictOn || '*Group has been all participants!*')
             if (groupUpdate.restrict == false) text = (chats.sRestrictOff || this.sRestrictOff || conn.sRestrictOff || '*Group has been only admin!*')
             if (!text) continue
-            this.sendHydrated(id, text.trim(), wm, hwaifu.getRandom(), null, null, nomorown, nameown, [
-      ['🔖Ok', 'Huuu'],
-      ['Matikan Fitur ini', '/disable detect']
-    ], null)
+            this.send2ButtonDoc(id, text.trim(), author, '🔖 Ok', 'Huuu', 'ℹ️ Menu', '.menu', fakes, {
+  contextInfo: { externalAdReply :{
+    mediaUrl: sig,
+    mediaType: 2,
+    description: wm, 
+    title: '👋 Hai, ' + ucapan,
+    body: botdate,
+    thumbnail: await( await fetch(logo)).buffer(),
+    sourceUrl: sgc
+     }}
+  })
     }
 }
 
@@ -1417,15 +1422,14 @@ ${nmsr} RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan
         restrict: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
 ${nmsr} Fitur ini di *disable* !`
     }[type]
-    if (msg) return conn.send2ButtonDoc(m.chat, msg, wm, hwaifu.getRandom(), '🔖 Ok', 'Huuu',
-      'ℹ️ Tes', 'Tes', null, { quoted: fkontak,
+    if (msg) return conn.send2ButtonDoc(m.chat, msg, author, '🔖 Ok', 'Huuu', 'ℹ️ Menu', '.menu', fakes, {
   contextInfo: { externalAdReply :{
     mediaUrl: sig,
     mediaType: 2,
     description: wm, 
     title: '👋 Hai, ' + ucapan,
     body: botdate,
-    thumbnail: Buffer.alloc(0),
+    thumbnail: await( await fetch(logo)).buffer(),
     sourceUrl: sgc
      }}
   })
