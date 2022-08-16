@@ -1320,7 +1320,7 @@ let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam pen
     description: wm, 
     title: '👋 Hai, ' + ucapan,
     body: botdate,
-    thumbnail: await( await fetch(logo)).buffer(),
+    thumbnail: readFileSync('./thumbnail.jpg'),
     sourceUrl: sgc
      }}
   })
@@ -1356,7 +1356,7 @@ export async function groupsUpdate(groupsUpdate) {
     description: wm, 
     title: '👋 Hai, ' + ucapan,
     body: botdate,
-    thumbnail: await( await fetch(logo)).buffer(),
+    thumbnail: readFileSync('./thumbnail.jpg'),
     sourceUrl: sgc
      }}
   })
@@ -1429,7 +1429,7 @@ ${nmsr} Fitur ini di *disable* !`
     description: wm, 
     title: '👋 Hai, ' + ucapan,
     body: botdate,
-    thumbnail: await( await fetch(logo)).buffer(),
+    thumbnail: readFileSync('./thumbnail.jpg'),
     sourceUrl: sgc
      }}
   })
