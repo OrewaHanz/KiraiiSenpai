@@ -214,7 +214,7 @@ ${ usedPrefix }cook`
                                  pengguna.lastmancingeasy = new Date * 1
                                  } else conn.reply(m.chat, 'Minimal umpan kamu *100* untuk memancing level mudah', m)
                             } else conn.reply(m.chat, 'Minimal pancingan kamu *Level 2* untuk memancing level mudah', m)
-                       } else conn.reply(m.chat, `*Sepertinya Anda Sudah Lelah*\n*Silahkan Istirahat Sejenak Sekitar ${timersa}*\n*Untuk Bisa Melanjutkan Memancing Lagi*`, m)
+                       } else conn.reply(m.chat, `*Sepertinya Anda Sudah Lelah*\n*Silahkan Istirahat Sejenak Sekitar* ${timersa}\n*Untuk Bisa Melanjutkan Memancing Lagi*`, m)
                  break
 	          case 'normal':
                                   let __timerl = (new Date - pengguna.lastmancingeasy)
@@ -314,7 +314,7 @@ ${ usedPrefix }cook`
                                  pengguna.lastmancingeasy = new Date * 1
                                  } else conn.reply(m.chat, 'Minimal umpan kamu *150* untuk memancing level normal', m)
                             } else conn.reply(m.chat, 'Minimal pancingan kamu *Level 3* untuk memancing level normal', m)
-                       } else conn.reply(m.chat, `*Sepertinya Anda Sudah Lelah*\n*Silahkan Istirahat Sejenak Sekitar ${timerl}*\n*Untuk Bisa Melanjutkan Memancing Lagi*`, m)
+                       } else conn.reply(m.chat, `*Sepertinya Anda Sudah Lelah*\n*Silahkan Istirahat Sejenak Sekitar* ${timerl}\n*Untuk Bisa Melanjutkan Memancing Lagi*`, m)
                  break 
 	          case 'hard':
                                   let __timerh = (new Date - pengguna.lastmancingeasy)
@@ -414,7 +414,7 @@ ${ usedPrefix }cook`
                                  pengguna.lastmancingeasy = new Date * 1
                                  } else conn.reply(m.chat, 'Minimal umpan kamu *200* untuk memancing level hard', m)
                             } else conn.reply(m.chat, 'Minimal pancingan kamu *Level 4* untuk memancing level hard', m)
-                       } else conn.reply(m.chat, `*Sepertinya Anda Sudah Lelah*\n*Silahkan Istirahat Sejenak Sekitar ${timerh}*\n*Untuk Bisa Melanjutkan Memancing Lagi*`, m)
+                       } else conn.reply(m.chat, `*Sepertinya Anda Sudah Lelah*\n*Silahkan Istirahat Sejenak Sekitar* ${timerh}\n*Untuk Bisa Melanjutkan Memancing Lagi*`, m)
                  break
 	          case 'extreme':
                                   let __timere = (new Date - pengguna.lastmancingeasy)
@@ -514,7 +514,7 @@ ${ usedPrefix }cook`
                                  pengguna.lastmancingeasy = new Date * 1
                                  } else conn.reply(m.chat, 'Minimal umpan kamu *250* untuk memancing level extreme', m)
                             } else conn.reply(m.chat, 'Minimal pancingan kamu *Level 5* untuk memancing level extreme', m)
-                       } else conn.reply(m.chat, `*Sepertinya Anda Sudah Lelah*\n*Silahkan Istirahat Sejenak Sekitar ${timere}*\n*Untuk Bisa Melanjutkan Memancing Lagi*`, m)
+                       } else conn.reply(m.chat, `*Sepertinya Anda Sudah Lelah*\n*Silahkan Istirahat Sejenak Sekitar* ${timere}\n*Untuk Bisa Melanjutkan Memancing Lagi*`, m)
                  break
                        default:
                         return conn.sendMessage(m.chat, listMessage, {quoted: fgif})

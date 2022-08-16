@@ -7,8 +7,8 @@ conn
     let _timers = (10800000 - __timers)
     let timers = clockString(_timers) 
     
-    if (user.stamina < 20) return m.reply('Stamina anda tidak cukup untuk bekerja\nharap isi stamina anda dengan _#eat_')
-    if (user.lastrob > 10800000) throw m.reply('Kamu masih kelelahan untuk bekerja\nHarap tunggu ${timers} lagi untuk rob')
+    if (user.stamina < 20) return m.reply(`Stamina anda tidak cukup untuk bekerja\nharap isi stamina anda dengan #eat`)
+    if (user.lastrob > 10800000) throw m.reply(`Kamu masih kelelahan untuk bekerja\nHarap tunggu ${timers} lagi untuk rob`)
 
 let rndm1 = `${Math.floor(Math.random() * 10)}`
 let rndm2 = `${Math.floor(Math.random() * 10)}`

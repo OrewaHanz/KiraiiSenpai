@@ -52,7 +52,7 @@ and you got Additional gifts
             global.db.data.users[m.sender].exp += exp * 1
             global.db.data.users[m.sender].money += uang * 1
             global.db.data.users[m.sender].lastmining = new Date * 1
-            } else conn.reply(m.chat, `Please wait  *${timers}* again`, m)
+            } else conn.reply(m.chat, `Please wait  ${timers} again`, m)
         } else conn.reply(m.chat, 'minimum 80 healt to do choping', m)
     } catch (e) {
         console.log(e)

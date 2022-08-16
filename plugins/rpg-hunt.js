@@ -87,7 +87,7 @@ Berkurang -${healing} Health, Tersisa ${player.health} Health
 
 +1 Tiketcoin`
     await conn.sendButton(m.chat, pesan, wm, null, [['Menu', `${usedPrefix}menu`],['Owner', `${usedPrefix}owner`]], m, { mentions: conn.parseMention(pesan) })
-  } else throw `Tunggu *${timers}* Untuk Berburu Lagi`
+  } else throw `Tunggu ${timers} Untuk Berburu Lagi`
 }
 
 handler.help = ['hunt']

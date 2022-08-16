@@ -101,7 +101,7 @@ let handler = async (m, {
     ], null)
 		}, 0)
 		user.lastberburu = new Date * 1
-	} else conn.sendButton(m.chat, `\n*Sepertinya Anda Sudah Kecapekan*\n*Silahkan Istirahat dulu sekitar ${timers}*\n*Untuk bisa melanjutkan berburu*\n`, author, null, [
+	} else conn.sendButton(m.chat, `\n*Sepertinya Anda Sudah Kecapekan*\n*Silahkan Istirahat dulu sekitar* ${timers}\n*Untuk bisa melanjutkan berburu*\n`, author, null, [
 		['Kandang', '.kandang']
 	], m)
 }

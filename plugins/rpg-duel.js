@@ -28,7 +28,7 @@ let handler = async ( m, { conn, args, command}) => {
        if (new Date - user.lastduel > 300000) {
       conn.sendButton(m.chat, pler, wm, null, [[`Ya`, `+dya`], [`No`, `+dno`]], m, { mentions: conn.parseMention(mentionedJid) })
 
-      } else conn.reply( m.chat, `Kamu Sudah Berduel Tunggu hingga *${timers}*`, m)
+      } else conn.reply( m.chat, `Kamu Sudah Berduel Tunggu hingga ${timers}`, m)
      }
 
      if (/dya/.test(command)) {

@@ -9,7 +9,7 @@ conn, usedPrefix
     let name = await conn.getName(m.sender)
     
     if (user.stamina < 20) return m.reply(`Stamina anda tidak cukup\nharap isi stamina anda dengan *${usedPrefix}eat8`)
-    if (user.lastgrab > 10800000) throw m.reply(`Kamu masih kelelahan\nHarap tunggu *${timers}* lagi`)
+    if (user.lastgrab > 10800000) throw m.reply(`Kamu masih kelelahan\nHarap tunggu ${timers} lagi`)
     
     let rndm1 = `${Math.floor(Math.random() * 5)}`
 		let rndm2 = `${Math.floor(Math.random() * 10)}`

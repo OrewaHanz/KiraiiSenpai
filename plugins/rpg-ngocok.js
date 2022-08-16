@@ -13,7 +13,7 @@ conn, usedPrefix, text, participants, groupMetadata
     let a = ps.getRandom()
     
     if (user.stamina < 20) return m.reply(`Stamina anda tidak cukup\nharap isi stamina anda dengan *${usedPrefix}eat8`)
-    if (user.lastngocok > 10800000) throw m.reply(`Kamu masih kelelahan\nHarap tunggu *${timers}* lagi`)
+    if (user.lastngocok > 10800000) throw m.reply(`Kamu masih kelelahan\nHarap tunggu ${timers} lagi`)
     
     
     let rndm1 = `${Math.floor(Math.random() * 5)}`

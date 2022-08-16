@@ -8,7 +8,7 @@ let handler = async (m, { conn }) => {
     let user = global.db.data.users[m.sender]
     
     if (user.stamina < 20) return m.reply(`Stamina anda tidak cukup\nharap isi stamina anda dengan *${usedPrefix}eat8`)
-    if (user.lastngojek > 10800000) throw m.reply(`Kamu masih kelelahan\nHarap tunggu *${timers}* lagi`)
+    if (user.lastngojek > 10800000) throw m.reply(`Kamu masih kelelahan\nHarap tunggu ${timers} lagi`)
     
      if (new Date - global.db.data.users[m.sender].lastngojek > 300000) {
 let randomaku1 = `${Math.floor(Math.random() * 10)}`

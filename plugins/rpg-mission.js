@@ -17,7 +17,7 @@ async function handler(m, { conn, args, text , usedPrefix, command }) {
     if(typeof user.crystal != "number") global.db.data.users[m.sender].crystal = 0
 
     let timers = (cooldown - (new Date - user.lastmisi))
-    if(new Date - user.lastmisi <= cooldown) return m.reply(`wait for *🕐${clockString(timers)}*`)
+    if(new Date - user.lastmisi <= cooldown) return m.reply(`wait for 🕐${clockString(timers)}`)
     if(!user.skill) return m.reply("Anda belum mempunyai skill")
 
     if(!(m.sender in conn.mission)) {
@@ -68,7 +68,7 @@ handler.before = async m => {
   if(typeof user.crystal != "number") global.db.data.users[m.sender].crystal = 0
 
   let timers = (cooldown - (new Date - user.lastmisi))
-  if(new Date - user.lastmisi <= cooldown) return m.reply(`Wait for *🕐${clockString(timers)}*`)
+  if(new Date - user.lastmisi <= cooldown) return m.reply(`Wait for 🕐${clockString(timers)}`)
   if(!user.skill) return m.reply("Anda belum mempunyai skill")
 
   let randomaku = `${Math.floor(Math.random() * 101)}`.trim()

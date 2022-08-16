@@ -45,7 +45,7 @@ let handler = async (m, { conn, args, usedPrefix }) => {
                         }
                     }
                 } else m.reply(`Ramuan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah meminum ramuan, coba beberapa *${waktur}* lagi`)
+            } else m.reply(`Pet kamu sudah meminum ramuan, coba beberapa ${waktur} lagi`)
             break
         case 'kuda':
             if (kuda == 0) return m.reply('*Kamu belum memiliki Pet Kuda*')
@@ -71,7 +71,7 @@ let handler = async (m, { conn, args, usedPrefix }) => {
                         }
                     }
                 } else m.reply(`Ramuan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah meminum ramuan, coba beberapa *${waktuk}* lagi`)
+            } else m.reply(`Pet kamu sudah meminum ramuan, coba beberapa ${waktuk} lagi`)
             break
         case 'serigala':
             if (serigala == 0) return m.reply('*Kamu belum memiliki Pet Serigala*')
@@ -97,7 +97,7 @@ let handler = async (m, { conn, args, usedPrefix }) => {
                         }
                     }
                 } else m.reply(`Ramuan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah meminum ramuan, coba beberapa *${waktus}* lagi`)
+            } else m.reply(`Pet kamu sudah meminum ramuan, coba beberapa ${waktus} lagi`)
             break
         case 'naga':
             if (naga == 0) return m.reply('*Kamu belum memiliki Pet naga*')
@@ -123,7 +123,7 @@ let handler = async (m, { conn, args, usedPrefix }) => {
                         }
                     }
                 } else m.reply(`Ramuan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah meminum ramuan, coba beberapa *${waktug}* lagi`)
+            } else m.reply(`Pet kamu sudah meminum ramuan, coba beberapa ${waktug} lagi`)
             break 
       case 'kyubi':
             if (kyubi == 0) return m.reply('*Kamu belum memiliki Pet kyubi*')
@@ -149,7 +149,7 @@ let handler = async (m, { conn, args, usedPrefix }) => {
                         }
                     }
                 } else m.reply(`Ramuan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah meminum ramuan, coba beberapa *${waktuyu}* lagi`)
+            } else m.reply(`Pet kamu sudah meminum ramuan, coba beberapa ${waktuyu} lagi`)
             break 
       case 'centaur':
             if (centaur == 0) return m.reply('*Kamu belum memiliki Pet centaur*')
@@ -175,7 +175,7 @@ let handler = async (m, { conn, args, usedPrefix }) => {
                         }
                     }
                 } else m.reply(`Ramuan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah meminum ramuan, coba beberapa *${waktuur}* lagi`)
+            } else m.reply(`Pet kamu sudah meminum ramuan, coba beberapa ${waktuur} lagi`)
             break 
          case 'phonix':
             if (phonix == 0) return m.reply('*Kamu belum memiliki Pet Phonix*')
@@ -201,7 +201,7 @@ let handler = async (m, { conn, args, usedPrefix }) => {
                         }
                     }
                 } else m.reply(`Ramuan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah kenyang, coba kasih makan *${waktux}* lagi`)
+            } else m.reply(`Pet kamu sudah kenyang, coba beberapa ${waktux} lagi`)
             break
         case 'griffin':
             if (griffin == 0) return m.reply('*Kamu belum memiliki Pet Griffin*')
@@ -227,7 +227,7 @@ let handler = async (m, { conn, args, usedPrefix }) => {
                         }
                     }
                 } else m.reply(`Ramuan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah meminum ramuan, coba beberapa *${waktufin}* lagi`)
+            } else m.reply(`Pet kamu sudah meminum ramuan, coba beberapa ${waktufin} lagi`)
             break
         case 'kucing':
             if (kucing == 0) return m.reply('*Kamu belum memiliki Pet Kucing*')
@@ -253,7 +253,7 @@ let handler = async (m, { conn, args, usedPrefix }) => {
                         }
                     }
                 } else m.reply(`Ramuan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah meminum ramuan, coba beberapa *${waktu}* lagi`)
+            } else m.reply(`Pet kamu sudah meminum ramuan, coba beberapa ${waktu} lagi`)
             break
         case 'hero':
             if (hero == 0) return m.reply('*Kamu belum memiliki Hero*')
@@ -279,7 +279,7 @@ let handler = async (m, { conn, args, usedPrefix }) => {
                         }
                     }
                 } else m.reply(`Ramuan hero kamu tidak cukup`)
-            } else m.reply(`Hero kamu sudah meminum ramuan, coba beberapa *${waktuher}* lagi`)
+            } else m.reply(`Hero kamu sudah meminum ramuan, coba beberapa ${waktuher} lagi`)
             break
         default:
             return conn.reply(m.chat, `${usedPrefix}ramuan [hero | kucing | rubah | kuda | naga | centaur | phonix | serigala]\nContoh penggunaan: *${usedPrefix}ramuan kucing*`, m)

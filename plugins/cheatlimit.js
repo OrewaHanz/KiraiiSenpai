@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 let handler = async (m, { conn, text, args, usedPrefix, command }) => {
 if (args[0] == 'all') {
 let user = global.db.data.users[m.sender]
-        conn.reply(m.chat, `*Succes Cheat Infinity!*`, m, { contextInfo: { externalAdReply: { title: botdate, body: bottime, mediaType: 2, sourceUrl: sig, mediaUrl: sig, thumbnail: await(await fetch('https://telegra.ph/file/1836eec6c22d949829474.jpg')).buffer()}}})
+        conn.reply(m.chat, `*Succes Cheat Infinity All In Shop!*\n\n📮 *Note:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner`, m, { contextInfo: { externalAdReply: { title: botdate, body: bottime, mediaType: 2, sourceUrl: sig, mediaUrl: sig, thumbnail: await(await fetch('https://telegra.ph/file/1836eec6c22d949829474.jpg')).buffer()}}})
         user.money = Infinity
         user.limit = Infinity
         user.level = Infinity

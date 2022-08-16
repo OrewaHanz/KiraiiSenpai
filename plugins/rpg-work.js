@@ -71,7 +71,7 @@ ${rpg.emoticon('sampah')} *sampah:* ${sampah}${potion == 0 ? '' : `\n*${rpg.emot
             global.db.data.users[m.sender].kayu += kayu * 1
             global.db.data.users[m.sender].string += string * 1
             global.db.data.users[m.sender].lastadventure = new Date * 1
-            } else conn.sendButton(m.chat, `Anda sudah bekerja keras hari ini, silahkan menunggu sampai *${timers}*`, wm, null, [['menu', usedPrefix + 'menu']], m)
+            } else conn.sendButton(m.chat, `Anda sudah bekerja keras hari ini, silahkan menunggu sampai ${timers}`, wm, null, [['menu', usedPrefix + 'menu']], m)
         } else conn.sendButton(m.chat, 'Minimal 80 health untuk bisa bercocok tanam, beli obat dulu biar kuat dengan ketik *' + usedPrefix + 'shop buy potion <jumlah>*\ndan ketik *' + usedPrefix + 'use potion <jumlah>*\n\n_Untuk mendapat money dan potion gratis ketik_ *' + usedPrefix + 'claim*', wm, null, [['Healing', usedPrefix + `heal`, 'Beli Potion', usedPrefix + `shop buy potion`]], m)
     } catch (e) {
         console.log(e)

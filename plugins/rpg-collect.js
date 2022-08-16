@@ -8,7 +8,7 @@ let handler = async (m, { conn }) => {
         user.money += 1000
         user.potion += 1
         user.lastclaim = new Date * 1
-    } else conn.reply(m.chat, `silahkan tunggu *${timers}* lagi untuk bisa mengclaim lagi`, m)
+    } else conn.reply(m.chat, `silahkan tunggu ${timers} lagi untuk bisa mengclaim lagi`, m)
 }
 handler.help = ['collect']
 handler.tags = ['rpg']

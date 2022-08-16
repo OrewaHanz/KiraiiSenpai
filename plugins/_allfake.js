@@ -77,7 +77,7 @@ handler.all = async function (m) {
       "requestFrom": "0@s.whatsapp.net",
       "noteMessage": {
         "extendedTextMessage": {
-          "text": "\nHay Kak :> 👋 \n"
+          "text": "\nHay Kak :> 👋 \n" + ucapan
         }
       },
       "expiryTimestamp": fsizedoc,

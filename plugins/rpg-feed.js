@@ -5,6 +5,9 @@ let handler = async (m, {
 	command 
 }) => {
     let type = (args[0] || '').toLowerCase()
+    let wm = global.wm
+	let linkgc = global.gc
+	let pp = global.thumb
 	let user = global.db.data.users[m.sender]
     let timebah = 600000
     let timeda = 600000
@@ -52,8 +55,8 @@ let handler = async (m, {
 `
     switch (type) {
         case 'fox':
-            if (fox == 0) return m.reply('*You not have a pet fox*')
-            if (fox == 5) return m.reply('*Your pet is already level max *')
+            if (fox == 0) return m.reply('*Kamu tidak punya pet fox*')
+            if (fox == 5) return m.reply('*Pet kamu sudah level max *')
             let wfox = (new Date - global.db.data.users[m.sender].foxlastclaim)
             let wfoxa = (600000 - wfox)
             let wfoxaa = clockString(wfoxa)
@@ -64,7 +67,7 @@ let handler = async (m, {
                     global.db.data.users[m.sender].foxlastclaim = new Date * 1
                     conn.reply(m.chat, `Feeding ${type} success`, m)
                     setTimeout(() => {
-                         conn.reply(m.chat, 'Time to feeding *fox*\nI hungry sir..', m)
+                         conn.reply(m.chat, 'Waktunya memberi makan *fox*\nKarena sudah lapar..', m)
                     }, timebah)
                     if (fox > 0) {
                         let naiklvl = ((fox * 1000) - 1)
@@ -75,10 +78,10 @@ let handler = async (m, {
                         }
                     }
                 } else m.reply(`Makanan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah kenyang, coba kasih makan *${wfoxaa}* lagi`)
+            } else m.reply(`Pet kamu sudah kenyang, Cobalah Untuk Memberi Dia Makan ${wfoxaa} lagi`)
             break
         case 'rhinoceros':
-            if (rhinoceros == 0) return m.reply('*You not have a pet rhinoceros*')
+            if (rhinoceros == 0) return m.reply('*Kamu tidak punya pet rhinoceros*')
             if (rhinoceros == 5) return m.reply('*Pet Kamu Telah Level Maximum*')
             let wbadak = (new Date - global.db.data.users[m.sender].rhinoceroslastclaim)
             let wbadaka = (600000 - wbadak)
@@ -98,10 +101,10 @@ let handler = async (m, {
                         }
                     }
                 } else m.reply(`Makanan Pet Kamu Tidak Cukup`)
-            } else m.reply(`Pet Kamu Sudah Kenyang, Cobalah Untuk Memberi Dia Makan *${wbadakaa}* Lagi`)
+            } else m.reply(`Pet Kamu Sudah Kenyang, Cobalah Untuk Memberi Dia Makan ${wbadakaa} lagi`)
             break
             case 'lion':
-            if (lion == 0) return m.reply('*You not have a pet*')
+            if (lion == 0) return m.reply('*Kamu tidak punya pet*')
             if (lion == 5) return m.reply('*Pet Kamu Telah Level Maximum*')
             let wlion = (new Date - global.db.data.users[m.sender].lionlastclaim)
             let wliona = (600000 - wlion)
@@ -121,11 +124,11 @@ let handler = async (m, {
                         }
                     }
                 } else m.reply(`Makanan Pet Kamu Tidak Cukup`)
-            } else m.reply(`Pet Kamu Sudah Kenyang, Cobalah Untuk Memberi Dia Makan *${wlionaa}* Lagi`)
+            } else m.reply(`Pet Kamu Sudah Kenyang, Cobalah Untuk Memberi Dia Makan ${wlionaa} lagi`)
             break
         case 'horse':
-            if (horse == 0) return m.reply('*You not have a pet horse*')
-            if (horse == 5) return m.reply('*Your pet is already level max *')
+            if (horse == 0) return m.reply('*Kamu tidak punya pet horse*')
+            if (horse == 5) return m.reply('*Pet kamu sudah level max *')
             let whorse = (new Date - global.db.data.users[m.sender].horselastclaim)
             let whorsea = (600000 - whorse)
             let whorseaa = clockString(whorsea)
@@ -136,7 +139,7 @@ let handler = async (m, {
                     global.db.data.users[m.sender].horselastclaim = new Date * 1
                     conn.reply(m.chat, `Feeding ${type} success`, m)
                     setTimeout(() => {
-                         conn.reply(m.chat, 'Time to feeding *horse*\nI hungry sir..', m)
+                         conn.reply(m.chat, 'Waktunya memberi makan *horse*\nKarena sudah lapar..', m)
                     }, timeda)
                     if (horse > 0) {
                         let naiklvl = ((horse * 1000) - 1)
@@ -147,11 +150,11 @@ let handler = async (m, {
                         }
                     }
                 } else m.reply(`Makanan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah kenyang, coba kasih makan *${whorseaa}* lagi`)
+            } else m.reply(`Pet kamu sudah kenyang, Cobalah Untuk Memberi Dia Makan ${whorseaa} lagi`)
             break
         case 'wolf':
-            if (wolf == 0) return m.reply('*You not have a pet wolf*')
-            if (wolf == 5) return m.reply('*Your pet is already level max *')
+            if (wolf == 0) return m.reply('*Kamu tidak punya pet wolf*')
+            if (wolf == 5) return m.reply('*Pet kamu sudah level max *')
             let wwolf = (new Date - global.db.data.users[m.sender].wolflastclaim)
             let wwolfa = (600000 - wwolf)
             let wwolfaa = clockString(wwolfa)
@@ -162,7 +165,7 @@ let handler = async (m, {
                     global.db.data.users[m.sender].wolflastclaim = new Date * 1
                     conn.reply(m.chat, `Feeding ${type} success`, m)
                     setTimeout(() => {
-                         conn.reply(m.chat, 'Time to feeding *wolf*\nI hungry sir..', m)
+                         conn.reply(m.chat, 'Waktunya memberi makan *wolf*\nKarena sudah lapar..', m)
                     }, timela)
                     if (wolf > 0) {
                         let naiklvl = ((wolf * 10000) - 1)
@@ -173,11 +176,11 @@ let handler = async (m, {
                         }
                     }
                 } else m.reply(`Makanan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah kenyang, coba kasih makan *${wwolfaa}* lagi`)
+            } else m.reply(`Pet kamu sudah kenyang, Cobalah Untuk Memberi Dia Makan ${wwolfaa} lagi`)
             break
         case 'dragon':
-            if (dragon == 0) return m.reply('*You not have a pet dragon*')
-            if (dragon == 5) return m.reply('*Your pet is already level max *')
+            if (dragon == 0) return m.reply('*Kamu tidak punya pet dragon*')
+            if (dragon == 5) return m.reply('*Pet kamu sudah level max *')
             let wdragon = (new Date - global.db.data.users[m.sender].dragonlastclaim)
             let wdragona = (600000 - wdragon)
             let wdragonaa = clockString(wdragona)
@@ -188,7 +191,7 @@ let handler = async (m, {
                     global.db.data.users[m.sender].dragonlastclaim = new Date * 1
                     conn.reply(m.chat, `Feeding ${type} success`, m)
                     setTimeout(() => {
-                         conn.reply(m.chat, 'Time to feeding *dragon*\nI hungry sir..', m)
+                         conn.reply(m.chat, 'Waktunya memberi makan *dragon*\nKarena sudah lapar..', m)
                     }, timega)
                     if (dragon > 0) {
                         let naiklvl = ((dragon * 10000) - 1)
@@ -199,11 +202,11 @@ let handler = async (m, {
                         }
                     }
                 } else m.reply(`Makanan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah kenyang, coba kasih makan *${wdragonaa}* lagi`)
+            } else m.reply(`Pet kamu sudah kenyang, Cobalah Untuk Memberi Dia Makan ${wdragonaa} lagi`)
             break 
       case 'kyubi':
-            if (kyubi == 0) return m.reply('*You not have a pet kyubi*')
-            if (kyubi == 5) return m.reply('*Your pet is already level max *')
+            if (kyubi == 0) return m.reply('*Kamu tidak punya pet kyubi*')
+            if (kyubi == 5) return m.reply('*Pet kamu sudah level max *')
             let wkyubi = (new Date - global.db.data.users[m.sender].kyubilastclaim)
             let wkyubia = (600000 - wkyubi)
             let wkyubiaa = clockString(wkyubia)
@@ -214,7 +217,7 @@ let handler = async (m, {
                     global.db.data.users[m.sender].kyubilastclaim = new Date * 1
                     conn.reply(m.chat, `Feeding ${type} success`, m)
                     setTimeout(() => {
-                         conn.reply(m.chat, 'Time to feeding *Kyubi*\nI hungry sir..', m)
+                         conn.reply(m.chat, 'Waktunya memberi makan *Kyubi*\nKarena sudah lapar..', m)
                     }, timebi)
                     if (kyubi > 0) {
                         let naiklvl = ((kyubi * 10000) - 1)
@@ -225,11 +228,11 @@ let handler = async (m, {
                         }
                     }
                 } else m.reply(`Makanan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah kenyang, coba kasih makan *${wkyubiaa}* lagi`)
+            } else m.reply(`Pet kamu sudah kenyang, Cobalah Untuk Memberi Dia Makan ${wkyubiaa} lagi`)
             break 
       case 'centaur':
-            if (centaur == 0) return m.reply('*You not have a pet centaur*')
-            if (centaur == 5) return m.reply('*Your pet is already level max *')
+            if (centaur == 0) return m.reply('*Kamu tidak punya pet centaur*')
+            if (centaur == 5) return m.reply('*Pet kamu sudah level max *')
             let wcentaur = (new Date - global.db.data.users[m.sender].centaurlastclaim)
             let wcentaura = (600000 - wcentaur)
             let wcentauraa = clockString(wcentaura)
@@ -240,7 +243,7 @@ let handler = async (m, {
                     global.db.data.users[m.sender].centaurlastclaim = new Date * 1
                     conn.reply(m.chat, `Feeding ${type} success`, m)
                     setTimeout(() => {
-                         conn.reply(m.chat, 'Time to feeding *Centaur*\nI hungry sir..', m)
+                         conn.reply(m.chat, 'Waktunya memberi makan *Centaur*\nKarena sudah lapar..', m)
                     }, timeur)
                     if (centaur > 0) {
                         let naiklvl = ((centaur * 10000) - 1)
@@ -251,11 +254,11 @@ let handler = async (m, {
                         }
                     }
                 } else m.reply(`Makanan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah kenyang, coba kasih makan *${wcentauraa}* lagi`)
+            } else m.reply(`Pet kamu sudah kenyang, Cobalah Untuk Memberi Dia Makan ${wcentauraa} lagi`)
             break 
          case 'phonix':
-            if (phonix == 0) return m.reply('*You not have a pet Phonix*')
-            if (phonix == 5) return m.reply('*Your pet is already level max *')
+            if (phonix == 0) return m.reply('*Kamu tidak punya pet Phonix*')
+            if (phonix == 5) return m.reply('*Pet kamu sudah level max *')
             let wphonix = (new Date - global.db.data.users[m.sender].phonixlastclaim)
             let wphonixa = (600000 - wphonix)
             let wphonixaa = clockString(wphonixa)
@@ -266,7 +269,7 @@ let handler = async (m, {
                     global.db.data.users[m.sender].phonixlastclaim = new Date * 1
                     conn.reply(m.chat, `Feeding ${type} success`, m)
                     setTimeout(() => {
-                         conn.reply(m.chat, 'Time to feeding *Phonix*\nI hungry sir..', m)
+                         conn.reply(m.chat, 'Waktunya memberi makan *Phonix*\nKarena sudah lapar..', m)
                     }, timenix)
                     if (phonix > 0) {
                         let naiklvl = ((phonix * 10000) - 1)
@@ -277,11 +280,11 @@ let handler = async (m, {
                         }
                     }
                 } else m.reply(`Makanan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah kenyang, coba kasih makan *${wphonixaa}* lagi`)
+            } else m.reply(`Pet kamu sudah kenyang, Cobalah Untuk Memberi Dia Makan ${wphonixaa} lagi`)
             break
         case 'griffin':
-            if (griffin == 0) return m.reply('*You not have a pet Griffin*')
-            if (griffin == 5) return m.reply('*Your pet is already level max *')
+            if (griffin == 0) return m.reply('*Kamu tidak punya pet Griffin*')
+            if (griffin == 5) return m.reply('*Pet kamu sudah level max *')
             let wgriffin = (new Date - global.db.data.users[m.sender].griffinastclaim)
             let wgriffina = (600000 - wgriffin)
             let wgriffinaa = clockString(wgriffina)
@@ -292,7 +295,7 @@ let handler = async (m, {
                     global.db.data.users[m.sender].griffinlastclaim = new Date * 1
                     conn.reply(m.chat, `Feeding ${type} success`, m)
                     setTimeout(() => {
-                         conn.reply(m.chat, 'Time to feeding *Griffin*\nI hungry sir..', m)
+                         conn.reply(m.chat, 'Waktunya memberi makan *Griffin*\nKarena sudah lapar..', m)
                     }, timefin)
                     if (griffin > 0) {
                         let naiklvl = ((griffin * 10000) - 1)
@@ -303,11 +306,11 @@ let handler = async (m, {
                         }
                     }
                 } else m.reply(`Makanan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah kenyang, coba kasih makan *${wgriffinaa}* lagi`)
+            } else m.reply(`Pet kamu sudah kenyang, Cobalah Untuk Memberi Dia Makan ${wgriffinaa} lagi`)
             break
         case 'cat':
-            if (cat == 0) return m.reply('*You not have a pet cat*')
-            if (cat == 5) return m.reply('*Your pet is already level max *')
+            if (cat == 0) return m.reply('*Kamu tidak punya pet cat*')
+            if (cat == 5) return m.reply('*Pet kamu sudah level max *')
             let wcat = (new Date - global.db.data.users[m.sender].catlastclaim)
             let wcata = (600000 - wcat)
             let wcataa = clockString(wcata)
@@ -318,7 +321,7 @@ let handler = async (m, {
                     global.db.data.users[m.sender].catlastclaim = new Date * 1
                     conn.reply(m.chat, `Feeding ${type} success`, m)
                     setTimeout(() => {
-                         conn.reply(m.chat, 'Time to feeding *cat*\nI hungry sir..', m)
+                         conn.reply(m.chat, 'Waktunya memberi makan *cat*\nKarena sudah lapar..', m)
                     }, timecing)
                     if (cat > 0) { 
                         let naiklvl = ((cat * 1000) - 1)
@@ -329,7 +332,7 @@ let handler = async (m, {
                         }
                     }
                 } else m.reply(`Makanan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah kenyang, coba kasih makan *${wcataa}* lagi`)
+            } else m.reply(`Pet kamu sudah kenyang, Cobalah Untuk Memberi Dia Makan ${wcataa} lagi`)
             break
             case 'rubah':
             if (rubah == 0) return m.reply('*Kamu belum memiliki Pet Rubah*')
@@ -352,7 +355,7 @@ let handler = async (m, {
                         }
                     }
                 } else m.reply(`Makanan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah kenyang, coba kasih makan *${wrubahaa}* lagi`)
+            } else m.reply(`Pet kamu sudah kenyang, Cobalah Untuk Memberi Dia Makan ${wrubahaa} lagi`)
             break
         case 'kucing':
             if (kucing == 0) return m.reply('*Kamu belum memiliki Pet Kucing*')
@@ -375,7 +378,7 @@ let handler = async (m, {
                         }
                     }
                 } else m.reply(`Makanan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah kenyang, coba kasih makan *${wkucingaa}* lagi`)
+            } else m.reply(`Pet kamu sudah kenyang, Cobalah Untuk Memberi Dia Makan ${wkucingaa} lagi`)
             break
         case 'anjing':
             if (anjing == 0) return m.reply('*Kamu belum memiliki Pet Anjing*')
@@ -398,7 +401,7 @@ let handler = async (m, {
                         }
                     }
                 } else m.reply(`Makanan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah kenyang, coba kasih makan *${wanjingaa}* lagi`)
+            } else m.reply(`Pet kamu sudah kenyang, Cobalah Untuk Memberi Dia Makan ${wanjingaa} lagi`)
             break
         case 'kuda':
             if (kuda == 0) return m.reply('*Kamu belum memiliki Pet Kuda*')
@@ -421,7 +424,7 @@ let handler = async (m, {
                         }
                     }
                 } else m.reply(`Makanan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah kenyang, coba kasih makan *${wkudaaa}* lagi`)
+            } else m.reply(`Pet kamu sudah kenyang, Cobalah Untuk Memberi Dia Makan ${wkudaaa} lagi`)
             break
         default:
         await conn.sendMessage(m.chat, {
@@ -508,5 +511,5 @@ function clockString(ms) {
   let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000) % 24
   let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-  return ['\n' + d, ' *Days ☀️*\n ', h, ' *Hours 🕐*\n ', m, ' *Minute ⏰*\n ', s, ' *Second ⏱️* '].map(v => v.toString().padStart(2, 0)).join('')
+  return [d, ' *Days ☀️*\n ', h, ' *Hours 🕐*\n ', m, ' *Minute ⏰*\n ', s, ' *Second ⏱️* '].map(v => v.toString().padStart(2, 0)).join('')
 }
