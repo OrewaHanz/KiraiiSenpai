@@ -6,16 +6,7 @@ import moment from 'moment-timezone'
 
 /*Oᴡɴᴇʀ number*/
 global.owner = [
-  ['6282195322106', '️Oᴡɴᴇʀ One', true],
-  ['6282195322106', '️Oᴡɴᴇʀ Two', true],
-  ['6282195322106', '️Oᴡɴᴇʀ Three', true],
-  ['6282195322106', '️Oᴡɴᴇʀ Four', true],
-  ['6282195322106', '️Oᴡɴᴇʀ Five', true],
-  ['6282195322106', '️Oᴡɴᴇʀ Six', true],
-  ['6282195322106', '️Oᴡɴᴇʀ Seven', true],
-  ['6282195322106', '️Oᴡɴᴇʀ Eight', true],
-  ['6282195322106', '️Oᴡɴᴇʀ Nine', true],
-  ['6282195322106', '️Oᴡɴᴇʀ Teen', true]
+  ['60169611989', '️KiraiiSenpai👑', true]
 ]
 global.mods = []
 global.prems = []
@@ -56,7 +47,7 @@ global.APIKeys = {
  'https://hardianto-chan.herokuapp.com' : 'hardianto',
  'https://hardianto.xyz' : 'hardianto',
  'https://leyscoders-api.herokuapp.com' : 'MIMINGANZ',
- 'https://melcanz.com' : 'manHkmst',
+ 'https://melcanz.com' : 'melcantik',
  'https://pencarikode.xyz' : 'pais',
  'https://rest-beni.herokuapp.com' : 'benniismaelapikey',
  'https://violetics.pw' : 'beta',
@@ -78,15 +69,15 @@ global.xckey = 'BOhjM2hUVn'
 */
 
 /*Number*/
-global.nomorbot = '6285171216276'
-global.nomorown = '6282195322106'
-global.namebot = 'ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ'
-global.nameown = '「 Oᴡɴᴇʀ 」'
+global.nomorbot = '19706388373'
+global.nomorown = '60169611989'
+global.namebot = 'KiraiiBotOFC'
+global.nameown = '「 KiraiiSenpai👑 」'
 
 /*Watermark*/
-global.wm = '                「 ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ あ⁩ 」'
-global.wm2 = '꒷︶꒷꒥꒷ ‧₊˚ ꒰ฅ˘օառɛʀ˘ฅ ꒱ ‧₊˚꒷︶꒷꒥꒷'
-global.wm3 = '⫹⫺ ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ'
+global.wm = 'KiraiiBotOFC'
+global.wm2 = 'KiraiiBotOFC'
+global.wm3 = '⫹⫺ KiraiiBotOFC'
 global.botdate = `⫹⫺ Date :  ${moment.tz('Asia/Jakarta').format('DD/MM/YY')}`
 global.bottime = `𝗧 𝗜 𝗠 𝗘 : ${moment.tz('Asia/Jakarta').format('HH:mm:ss')}`
 global.titlebot = `⫹⫺ Time Sever : ${moment.tz('Asia/Jakarta').format('HH:mm:ss')}\n⫹⫺ Date Server :  ${moment.tz('Asia/Jakarta').format('DD/MM/YY')}`
@@ -383,7 +374,7 @@ global.hwaifu = ['https://i.pinimg.com/originals/ed/34/f8/ed34f88af161e6278993e1
 /*Link*/
 global.sig = 'https://instagram.com/wudysoft'
 global.sgh = 'https://github.com/AyGemuy'
-global.sgc = 'https://chat.whatsapp.com/Fxz8FpQ0ddr2GrEjfYkJ1E'
+global.sgc = 'https://chat.whatsapp.com/DpK99CiuNJwBx0AbJbWSRb'
 global.sdc = 'https://discord.com/wudysoft'
 global.snh = 'https://tiktok.com/@upload_file'
 
@@ -427,9 +418,9 @@ global.htjava = '⫹⫺'
 
 /*Watermark*/
 global.stickpack = '.'
-global.stickauth = `☂︎ ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ\n⫹⫺ Whatsapp BOT\nwa.me/${global.nomorbot}`
-global.packname = '☂︎ Cʀᴇᴀᴛᴇᴅ Bʏ'
-global.author = 'ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ X Wudysoft'
+global.stickauth = 'KiraiiBotOFC'
+global.packname = 'KiraiiSenpai👑'
+global.author = 'KiraiiBotOFC X KiraiiSenpai👑'
 global.multiplier = 10
 
 /*Pesan*/
@@ -438,7 +429,7 @@ global.wait = 'Wait...'
 global.render = 'Render...'
 global.webs = 'https://s.id/Cerdasin62'
 global.logo = 'https://i.pinimg.com/564x/f7/d2/e4/f7d2e48fd59a8c01cd396bfc70b0a2d1.jpg'
-global.gcwangsaf = 'https://chat.whatsapp.com/Fxz8FpQ0ddr2GrEjfYkJ1E'
+global.gcwangsaf = 'https://chat.whatsapp.com/DpK99CiuNJwBx0AbJbWSRb'
 
 /*Donasi*/
 global.saweria = 'https://saweria.co/wudysoft'
