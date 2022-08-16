@@ -1262,6 +1262,17 @@ export async function participantsUpdate({ id, participants, action }) {
         await loadDatabase()
     let chat = global.db.data.chats[id] || {}
     let text = ''
+    let gettext = await fetch('https://raw.githubusercontent.com/fawwaz37/random/main/bijak.txt')
+  let restext = await gettext.text()
+  let katarandom = restext.split('\n')
+  let resmoji = JSON.parse(readFileSync('./json/emoji.json'))
+  let emojis = resmoji.emoji
+  
+     let mim_ = ["application/vnd.openxmlformats-officedocument.presentationml.presentation","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/vnd.openxmlformats-officedocument.wordprocessingml.document","application/vnd.ms-excel","application/msword","application/pdf","text/rtf"]
+     let lin_ = ["https://www.youtube.com","https://www.instagram.com","https://www.facebook.com"]
+let wmwel = `\n\n📮 *Welcome:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner`
+let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner`
+
     switch (action) {
         case 'add':
         case 'remove':
@@ -1279,19 +1290,8 @@ export async function participantsUpdate({ id, participants, action }) {
                     } finally {
                        text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || '👋 Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || 'unknow') :
                             (chat.sBye || this.bye || conn.bye || '👋 Bye, @user!')).replace('@user', await this.getName(user))
-  
-  let gettext = await fetch('https://raw.githubusercontent.com/fawwaz37/random/main/bijak.txt')
-  let restext = await gettext.text()
-  let katarandom = restext.split('\n')
   let names = await this.getName(user)
-  let resmoji = JSON.parse(readFileSync('./json/emoji.json'))
-  let emojis = resmoji.emoji
-  
-     let mim_ = ["application/vnd.openxmlformats-officedocument.presentationml.presentation","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/vnd.openxmlformats-officedocument.wordprocessingml.document","application/vnd.ms-excel","application/msword","application/pdf","text/rtf"]
-     let lin_ = ["https://www.youtube.com","https://www.instagram.com","https://www.facebook.com"]
-let wmwel = `\n\n📮 *Welcome:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner`
-let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner`
-    await conn.sendButton(id, text, action == 'add' ? wmwel : wmlea, Buffer.alloc(0), [[action == 'add' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'add' ? 'tes' : 'Huuu'], [action == 'add' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'add' ? '/menulist' : 'Huuu']], null, { quoted: fpayment, mimetype: mim_.getRandom(), fileName: ucapan, pageCount: fpagedoc, fileLength: fsizedoc, seconds: fsizedoc, jpegThumbnail: await( await fetch(ppgc)).buffer(), contextInfo: {
+      await conn.sendButton(id, text, action == 'add' ? wmwel : wmlea, Buffer.alloc(0), [[action == 'add' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'add' ? 'tes' : 'Huuu'], [action == 'add' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'add' ? '/menulist' : 'Huuu']], null, { quoted: fpayment, mimetype: mim_.getRandom(), fileName: ucapan, pageCount: fpagedoc, fileLength: fsizedoc, seconds: fsizedoc, jpegThumbnail: await( await fetch(ppgc)).buffer(), contextInfo: {
     mentionedJid: [user],
           externalAdReply :{
           showAdAttribution: true,
@@ -1309,12 +1309,38 @@ let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam pen
             }
             break
         case 'promote':
-            text = (chat.sPromote || this.spromote || conn.spromote || '@user *is now Admin*')
-            this.send2ButtonDoc(id, text, author, '🔖 Ok', 'Huuu', 'ℹ️ Matikan Fitur ini', '.disable detect', null, null)
-            break
         case 'demote':
-            text = (chat.sDemote || this.sdemote || conn.sdemote || '@user *is no longer Admin*')
-            this.send2ButtonDoc(id, text, author, '🔖 Ok', 'Huuu', 'ℹ️ Matikan Fitur ini', '.disable detect', null, null)
+            if (chat.detect) {
+                for (let uper of participants) {
+                    let pr
+                    let prgc
+                    try {
+                        pr = await this.profilePictureUrl(uper, 'image')
+                        prgc = await this.profilePictureUrl(id, 'image')
+                    } catch {
+                    pr = hwaifu.getRandom()
+                    prgc = hwaifu.getRandom()
+                    } finally {
+                       text = (action === 'promote' ?  (chat.sPromote || this.spromote || conn.spromote || '@uper *is now Admin*') :
+                            (chat.sDemote || this.sdemote || conn.sdemote || '@uper *is no longer Admin*')
+  
+  let namep = await this.getName(uper)
+    await conn.sendButton(id, text, action == 'promote' ? wmwel : wmlea, Buffer.alloc(0), [[action == 'promote' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'promote' ? 'tes' : 'Huuu'], [action == 'promote' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'promote' ? '/menulist' : 'Huuu']], null, { quoted: fpayment, mimetype: mim_.getRandom(), fileName: ucapan, pageCount: fpagedoc, fileLength: fsizedoc, seconds: fsizedoc, jpegThumbnail: await( await fetch(prgc)).buffer(), contextInfo: {
+    mentionedJid: [uper],
+          externalAdReply :{
+          showAdAttribution: true,
+    mediaUrl: lin_.getRandom(),
+    mediaType: 2,
+    description: wm, 
+    title: '👋 Hai, ' + namep + ' ' + ucapan,
+    body: botdate,
+    thumbnail: await( await fetch(pr)).buffer(),
+    sourceUrl: sgc
+     }}
+  })
+                    }
+                }
+            }
             break
     }
 }
