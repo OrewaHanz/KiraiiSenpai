@@ -1313,8 +1313,7 @@ let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam pen
         case 'demote':
            if (!text)
                 text = (chat.sDemote || this.sdemote || conn.sdemote || '@user *is no longer Admin*')
-            if (chat.detect) return
-            this.send2ButtonDoc(id, text.trim(), author, '🔖 Ok', 'Huuu', 'ℹ️ Matikan Fitur ini', '.disable detect', fpayment, adReply)
+            if (chat.detect) return this.send2ButtonDoc(id, text, author, '🔖 Ok', 'Huuu', 'ℹ️ Matikan Fitur ini', '.disable detect', null, null)
             break
     }
 }
@@ -1403,8 +1402,7 @@ ${nmsr} RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan
         restrict: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
 ${nmsr} Fitur ini di *disable* !`
     }[type]
-    if (msg) return
-    conn.send2ButtonDoc(m.chat, msg, author, '🔖 Ok', 'Huuu', 'ℹ️ Menu', '.menu', fpayment, adReply)
+    if (msg) return conn.send2ButtonDoc(m.chat, msg, author, '🔖 Ok', 'Huuu', 'ℹ️ Menu', '.menu', null, null)
 }
 
 let file = global.__filename(import.meta.url, true)
