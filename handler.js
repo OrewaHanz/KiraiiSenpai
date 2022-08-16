@@ -1280,6 +1280,7 @@ export async function participantsUpdate({ id, participants, action }) {
                     } finally {
                        text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || '👋 Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || 'unknow') :
                             (chat.sBye || this.bye || conn.bye || '👋 Bye, @user!')).replace('@user', await this.getName(user))
+
   let names = await this.getName(user)
   let gettext = await fetch('https://raw.githubusercontent.com/fawwaz37/random/main/bijak.txt')
   let restext = await gettext.text()
@@ -1314,7 +1315,7 @@ export async function participantsUpdate({ id, participants, action }) {
                        text = (action === 'promote' ?  (chat.sPromote || this.spromote || conn.spromote || '@user *is now Admin*') :
                             (chat.sDemote || this.sdemote || conn.sdemote || '@user *is no longer Admin*')
                             if (!text) continue
-                            this.send2ButtonDoc(id, text, author, '🔖 Matikan Fitur', '.off detect', 'ℹ️ Menu', '.menu', null, fakeig)
+                            this.send2ButtonDoc(id, text, author, '🔖 Matikan Fitur', '.off detect', 'ℹ️ Menu', '.menu', null, null)
                     }
             break
     }
