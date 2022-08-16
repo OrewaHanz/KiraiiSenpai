@@ -1291,7 +1291,7 @@ export async function participantsUpdate({ id, participants, action }) {
      let lin_ = ["https://www.youtube.com","https://www.instagram.com","https://www.facebook.com"]
 let wmwel = `\n\n📮 *Welcome:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner`
 let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner`
-    await conn.sendButton(id, text, action == 'add' ? wmwel : wmlea, Buffer.alloc(0), [[action == 'add' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'add' ? 'tes' : 'Huuu'], [action == 'add' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'add' ? '/menulist' : 'Huuu']], null, { quoted: ftoko, mimetype: mim_.getRandom(), fileName: ucapan, pageCount: fpagedoc, fileLength: fsizedoc, seconds: fsizedoc, jpegThumbnail: await( await fetch(ppgc)).buffer(), contextInfo: {
+    await conn.sendButton(id, text, action == 'add' ? wmwel : wmlea, Buffer.alloc(0), [[action == 'add' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'add' ? 'tes' : 'Huuu'], [action == 'add' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'add' ? '/menulist' : 'Huuu']], null, { quoted: fkontak, mimetype: mim_.getRandom(), fileName: ucapan, pageCount: fpagedoc, fileLength: fsizedoc, seconds: fsizedoc, jpegThumbnail: await( await fetch(ppgc)).buffer(), contextInfo: {
     mentionedJid: [user],
           externalAdReply :{
           showAdAttribution: true,
@@ -1314,17 +1314,15 @@ let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam pen
            if (!text)
                 text = (chat.sDemote || this.sdemote || conn.sdemote || '@user *is no longer Admin*')
             if (chat.detect) return this.send2ButtonDoc(id, text, wm, hwaifu.getRandom(), '🔖 Ok', 'Huuu',
-      'ℹ️ Matikan Fitur ini', '/disable detect' null, {
-      fileLength: fsizedoc,
+      'ℹ️ Matikan Fitur ini', '/disable detect' null, { quoted: fkontak,
       contextInfo: {
-    mentionedJid: [user],
     externalAdReply :{
     mediaUrl: sig,
     mediaType: 2,
     description: wm, 
     title: '👋 Hai, ' + ucapan,
     body: botdate,
-    thumbnail: readFileSync('./thumbnail.jpg'),
+    thumbnail: await( await fetch(logo)).buffer(),
     sourceUrl: sgc
      }}
   })
@@ -1420,15 +1418,14 @@ ${nmsr} RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan
 ${nmsr} Fitur ini di *disable* !`
     }[type]
     if (msg) return conn.send2ButtonDoc(m.chat, msg, wm, hwaifu.getRandom(), '🔖 Ok', 'Huuu',
-      'ℹ️ Tes', 'Tes' m, {
-  mentions: conn.parseMention(msg),
+      'ℹ️ Tes', 'Tes' m, { quoted: fkontak,
   contextInfo: { externalAdReply :{
     mediaUrl: sig,
     mediaType: 2,
     description: wm, 
     title: '👋 Hai, ' + ucapan,
     body: botdate,
-    thumbnail: readFileSync('./thumbnail.jpg'),
+    thumbnail: await( await fetch(logo)).buffer(),
     sourceUrl: sgc
      }}
   })
