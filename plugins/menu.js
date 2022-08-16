@@ -49,7 +49,7 @@ Hai, *%name!* %ucapan
 
 *Tanggal:* %week, %date
 *Waktu:* %time
-*Bot Online:* %uptime (%muptime)
+*Bot Uptime:* %uptime
 *Pengguna:* %totalreg Orang
 *Lib:* Baileys-Md
 *Language:* Javascript,Ts-Node
@@ -162,7 +162,7 @@ let handler = async (m, { conn, groupMetadata, usedPrefix: _p, __dirname }) => {
           ...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
             return menu.help.map(help => {
               return body.replace(/%cmd/g, menu.prefix ? help : '%p' + help)
-                .replace(/%islimit/g, menu.limit ? '🅛' : '')
+                .replace(/%islimit/g, menu.limit ? 'Ⓛ' : '')
                 .replace(/%isPremium/g, menu.premium ? '🅟' : '')
                 .trim()
             }).join('\n')
@@ -189,7 +189,7 @@ let handler = async (m, { conn, groupMetadata, usedPrefix: _p, __dirname }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    conn.sendHydrated(m.chat, text.trim(), wm + '\n\n' + botdate, hwaifu.getRandom(), sgc, 'Hinata Group', who.split`@`[0], em.getRandom() + ' Your Number', [
+    conn.sendHydrated(m.chat, text.trim(), wm + '\n\n' + botdate, hwaifu.getRandom(), sgc, em.getRandom() + ' Hinata Group', who.split`@`[0], em.getRandom() + ' Your Number', [
       ['🎀 Menu', '/menu'],
       ['🪄 Owner', '/owner']
     ], null, false, { mentions: [text] })
@@ -209,10 +209,11 @@ const more = String.fromCharCode(8206)
 const readMore = more.repeat(4001)
 
 function clockString(ms) {
-  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
+  let d = isNaN(ms) ? '--' : Math.floor(ms / 86400000)
+  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000) % 24
   let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-  return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
+  return ['\n' + d, ' *Days ☀️*\n ', h, ' *Hours 🕐*\n ', m, ' *Minute ⏰*\n ', s, ' *Second ⏱️* '].map(v => v.toString().padStart(2, 0)).join('')
 }
 
 function pickRandom(list) {

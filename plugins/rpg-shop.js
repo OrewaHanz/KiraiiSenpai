@@ -4,13 +4,13 @@ const items = {
             exp: 999
         },
         potion: {
-            money: 1250,
+            money: 1250
         },
         aqua: {
            money: 500
         },
         trash: {
-            money: 4,
+            money: 40
         },
         wood: {
             money: 700
@@ -198,13 +198,13 @@ const items = {
             exp: 999
         },
         potion: {
-            money: 1250,
+            money: 1250
         },
         aqua: {
            money: 500
         },
         trash: {
-            money: 4,
+            money: 40
         },
         wood: {
             money: 700

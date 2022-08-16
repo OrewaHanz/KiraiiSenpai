@@ -12,7 +12,7 @@ Hai, *%name!* %ucapan
 
 *Tanggal:* %week, %date
 *Waktu:* %time
-*Bot Online:* %uptime (%muptime)
+*Bot Online:* %uptime
 *Pengguna:* %totalreg Orang
 *Lib:* Baileys-Md
 *Language:* Javascript,Ts-Node
@@ -388,7 +388,7 @@ const listMessage = {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    conn.sendHydrated(m.chat, text.trim(), wm + '\n\n' + botdate, hwaifu.getRandom(), gcwangsaf, 'Hinata Group', who.split`@`[0], em.getRandom() + ' Your Number', [
+    conn.sendHydrated(m.chat, text.trim(), wm + '\n\n' + botdate, hwaifu.getRandom(), gcwangsaf, em.getRandom() + ' Hinata Group', who.split`@`[0], em.getRandom() + ' Your Number', [
       ['🎀 Menu', '/menu'],
       ['🪄 Owner', '/owner'],
       ['🔖 Test', '/ping']
@@ -409,10 +409,11 @@ const more = String.fromCharCode(8206)
 const readMore = more.repeat(4001)
 
 function clockString(ms) {
-  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
+  let d = isNaN(ms) ? '--' : Math.floor(ms / 86400000)
+  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000) % 24
   let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-  return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
+  return ['\n' + d, ' *Days ☀️*\n ', h, ' *Hours 🕐*\n ', m, ' *Minute ⏰*\n ', s, ' *Second ⏱️* '].map(v => v.toString().padStart(2, 0)).join('')
 }
 
 function pickRandom(list) {

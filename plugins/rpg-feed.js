@@ -5,9 +5,6 @@ let handler = async (m, {
 	command 
 }) => {
     let type = (args[0] || '').toLowerCase()
-    let wm = global.wm
-	let linkgc = global.gc
-	let pp = global.thumb
 	let user = global.db.data.users[m.sender]
     let timebah = 600000
     let timeda = 600000
@@ -511,5 +508,5 @@ function clockString(ms) {
   let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000) % 24
   let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-  return [d, ' *Days ☀️*\n ', h, ' *Hours 🕐*\n ', m, ' *Minute ⏰*\n ', s, ' *Second ⏱️* '].map(v => v.toString().padStart(2, 0)).join('')
+  return ['\n' + d, ' *Days ☀️*\n ', h, ' *Hours 🕐*\n ', m, ' *Minute ⏰*\n ', s, ' *Second ⏱️* '].map(v => v.toString().padStart(2, 0)).join('')
 }
