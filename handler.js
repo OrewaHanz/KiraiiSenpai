@@ -1313,12 +1313,20 @@ let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam pen
         case 'demote':
            if (!text)
                 text = (chat.sDemote || this.sdemote || conn.sdemote || '@user *is no longer Admin*')
-            if (chat.detect) return this.sendButton(id, text, wm, logo, [
-            ['🔖Ok', 'Huuu'],
-            ['Matikan Fitur ini', '/disable detect']
-      ], null, {
-                mentions: [user]
-            })
+            if (chat.detect) return this.sendButton(id, text, wm, logo, [['🔖Ok', 'Huuu'],
+            ['Matikan Fitur ini', '/disable detect']], null, { quoted: ftoko, fileLength: fsizedoc, contextInfo: {
+    mentionedJid: [user],
+          externalAdReply :{
+          showAdAttribution: true,
+    mediaUrl: sig,
+    mediaType: 2,
+    description: wm, 
+    title: '👋 Hai, ' + ucapan,
+    body: botdate,
+    thumbnail: await( await fetch(hwaifu.getRandom())).buffer(),
+    sourceUrl: sgc
+     }}
+  })
             break
     }
 }
@@ -1344,7 +1352,7 @@ export async function groupsUpdate(groupsUpdate) {
             if (groupUpdate.restrict == true) text = (chats.sRestrictOn || this.sRestrictOn || conn.sRestrictOn || '*Group has been all participants!*')
             if (groupUpdate.restrict == false) text = (chats.sRestrictOff || this.sRestrictOff || conn.sRestrictOff || '*Group has been only admin!*')
             if (!text) continue
-            this.sendHydrated(id, text.trim(), wm, logo, null, null, nomorown, nameown, [
+            this.sendHydrated(id, text.trim(), wm, hwaifu.getRandom(), null, null, nomorown, nameown, [
       ['🔖Ok', 'Huuu'],
       ['Matikan Fitur ini', '/disable detect']
     ], null)
@@ -1411,7 +1419,18 @@ ${nmsr} RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan
 ${nmsr} Fitur ini di *disable* !`
     }[type]
     if (msg) return conn.sendButton(m.chat, msg, wm, logo, [['🔖 Ok', 'Huuu'],
-      ['ℹ️ Tes', 'Tes']], null, { mentions: conn.parseMention(msg) })
+      ['ℹ️ Tes', 'Tes']], m, { quoted: ftoko, mentions: conn.parseMention(msg), fileLength: fsizedoc, contextInfo: {
+          externalAdReply :{
+          showAdAttribution: true,
+    mediaUrl: sig,
+    mediaType: 2,
+    description: wm, 
+    title: '👋 Hai, ' + ucapan,
+    body: botdate,
+    thumbnail: await( await fetch(hwaifu.getRandom())).buffer(),
+    sourceUrl: sgc
+     }}
+  })
 }
 
 let file = global.__filename(import.meta.url, true)
