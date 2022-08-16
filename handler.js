@@ -1266,6 +1266,8 @@ export async function participantsUpdate({ id, participants, action }) {
     switch (action) {
         case 'add':
         case 'remove':
+        case 'promote':
+        case 'demote':
             if (chat.welcome) {
                 let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
                 for (let user of participants) {
@@ -1280,7 +1282,8 @@ export async function participantsUpdate({ id, participants, action }) {
                     } finally {
                        text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || '👋 Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || 'unknow') :
                             (chat.sBye || this.bye || conn.bye || '👋 Bye, @user!')).replace('@user', await this.getName(user))
-
+                            text = (action === 'promote' ?  (chat.sPromote || this.spromote || conn.spromote || '@user *is now Admin*') :
+                            (chat.sDemote || this.sdemote || conn.sdemote || '@user *is no longer Admin*')
   let names = await this.getName(user)
   let gettext = await fetch('https://raw.githubusercontent.com/fawwaz37/random/main/bijak.txt')
   let restext = await gettext.text()
@@ -1309,12 +1312,7 @@ export async function participantsUpdate({ id, participants, action }) {
                 }
             }
             break
-        case 'promote':
-        case 'demote':
-                       text = (action === 'promote' ?  (chat.sPromote || this.spromote || conn.spromote || '@user *is now Admin*') :
-                            (chat.sDemote || this.sdemote || conn.sdemote || '@user *is no longer Admin*')
-                            this.send2ButtonDoc(id, text, author, '🔖 Matikan Fitur', '.off detect', 'ℹ️ Menu', '.menu', null, null)
-            break
+        
     }
 }
 
