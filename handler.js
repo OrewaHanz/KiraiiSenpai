@@ -1262,17 +1262,7 @@ export async function participantsUpdate({ id, participants, action }) {
         await loadDatabase()
     let chat = global.db.data.chats[id] || {}
     let text = ''
-    let gettext = await fetch('https://raw.githubusercontent.com/fawwaz37/random/main/bijak.txt')
-  let restext = await gettext.text()
-  let katarandom = restext.split('\n')
-  let resmoji = JSON.parse(readFileSync('./json/emoji.json'))
-  let emojis = resmoji.emoji
-  
-     let mim_ = ["application/vnd.openxmlformats-officedocument.presentationml.presentation","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/vnd.openxmlformats-officedocument.wordprocessingml.document","application/vnd.ms-excel","application/msword","application/pdf","text/rtf"]
-     let lin_ = ["https://www.youtube.com","https://www.instagram.com","https://www.facebook.com"]
-let wmwel = `\n\n📮 *Welcome:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner`
-let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner`
-
+    
     switch (action) {
         case 'add':
         case 'remove':
@@ -1291,6 +1281,16 @@ let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam pen
                        text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || '👋 Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || 'unknow') :
                             (chat.sBye || this.bye || conn.bye || '👋 Bye, @user!')).replace('@user', await this.getName(user))
   let names = await this.getName(user)
+  let gettext = await fetch('https://raw.githubusercontent.com/fawwaz37/random/main/bijak.txt')
+  let restext = await gettext.text()
+  let katarandom = restext.split('\n')
+  let resmoji = JSON.parse(readFileSync('./json/emoji.json'))
+  let emojis = resmoji.emoji
+  let mim_ = ["application/vnd.openxmlformats-officedocument.presentationml.presentation","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/vnd.openxmlformats-officedocument.wordprocessingml.document","application/vnd.ms-excel","application/msword","application/pdf","text/rtf"]
+  let lin_ = ["https://www.youtube.com","https://www.instagram.com","https://www.facebook.com"]
+  let wmwel = `\n\n📮 *Welcome:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner`
+  let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner`
+  
       await conn.sendButton(id, text, action == 'add' ? wmwel : wmlea, Buffer.alloc(0), [[action == 'add' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'add' ? 'tes' : 'Huuu'], [action == 'add' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'add' ? '/menulist' : 'Huuu']], null, { quoted: fpayment, mimetype: mim_.getRandom(), fileName: ucapan, pageCount: fpagedoc, fileLength: fsizedoc, seconds: fsizedoc, jpegThumbnail: await( await fetch(ppgc)).buffer(), contextInfo: {
     mentionedJid: [user],
           externalAdReply :{
@@ -1313,7 +1313,8 @@ let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam pen
             if (chat.detect) {
                        text = (action === 'promote' ?  (chat.sPromote || this.spromote || conn.spromote || '@user *is now Admin*') :
                             (chat.sDemote || this.sdemote || conn.sdemote || '@user *is no longer Admin*')
-                            this.send2ButtonDoc(id, text, author, '🔖 Ok', 'Huuu', 'ℹ️ Menu', '.menu', null, fakeig)
+                            if (!text) continue
+                            this.send2ButtonDoc(id, text, author, '🔖 Matikan Fitur', '.off detect', 'ℹ️ Menu', '.menu', null, fakeig)
                     }
             break
     }
@@ -1340,7 +1341,7 @@ export async function groupsUpdate(groupsUpdate) {
             if (groupUpdate.restrict == true) text = (chats.sRestrictOn || this.sRestrictOn || conn.sRestrictOn || '*Group has been all participants!*')
             if (groupUpdate.restrict == false) text = (chats.sRestrictOff || this.sRestrictOff || conn.sRestrictOff || '*Group has been only admin!*')
             if (!text) continue
-            this.send2ButtonDoc(id, text.trim(), author, '🔖 Ok', 'Huuu', 'ℹ️ Menu', '.menu', fpayment, adReply)
+            this.send2ButtonDoc(id, text.trim(), author, '🔖 Matikan Fitur', '.off detect', 'ℹ️ Menu', '.menu', fpayment, adReply)
     }
 }
 
