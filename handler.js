@@ -1314,7 +1314,7 @@ export async function participantsUpdate({ id, participants, action }) {
             case 'demote':
                 if (!text) text = (chat.sDemote || this.sdemote || conn.sdemote || '@user ```is no longer Admin```')
                 text = text.replace('@user', '@' + participants[0].split('@')[0])
-                if (chat.detect) this.send2ButtonDoc(id, text, author, '🔖 Matikan Fitur', '.off detect', 'ℹ️ Menu', '.menu', null, fakeig)
+                if (chat.detect) this.send2ButtonDoc(id, text, author, '🔖 Matikan Fitur', '.off detect', 'ℹ️ Menu', '.menu', null, adReply)
                 break
         
     }
@@ -1359,14 +1359,12 @@ export async function deleteUpdate(message) {
         let chat = global.db.data.chats[msg.chat] || {}
         if (chat.delete)
             return
-            this.sendButton(msg.key.remoteJid, `Terdeteksi *@${participant.split`@`[0]}* telah menghapus pesan.
+            this.send2ButtonDoc(msg.key.remoteJid, `Terdeteksi *@${participant.split`@`[0]}* telah menghapus pesan.
 Untuk mematikan fitur ini, ketik
 *.off antidelete*
 
 Untuk menghapus pesan yang dikirim BOT, reply pesan dengan perintah
-*.delete*`, wm, null, [['Matikan Fitur ini', '/disable delete']], msg, {
-                mentions: [participant]
-            })
+*.delete*`, author, '🔖 Matikan Fitur', '.off detect', 'ℹ️ Menu', '.menu', msg, adReply)
         this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
     } catch (e) {
         console.error(e)
@@ -1404,7 +1402,7 @@ ${nmsr} RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan
         restrict: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
 ${nmsr} Fitur ini di *disable* !`
     }[type]
-    if (msg) return conn.send2ButtonDoc(m.chat, msg, author, '🔖 Ok', 'Huuu', 'ℹ️ Menu', '.menu', null, fakeig)
+    if (msg) return conn.send2ButtonDoc(m.chat, msg, author, '🔖 Ok', 'Huuu', 'ℹ️ Menu', '.menu', null, adReply)
 }
 
 let file = global.__filename(import.meta.url, true)
