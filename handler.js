@@ -1383,36 +1383,37 @@ Untuk menghapus pesan yang dikirim BOT, reply pesan dengan perintah
 dfail
  */
 global.dfail = (type, m, conn) => {
+    let nm = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+    let nms = await conn.getName(nm)
+    let nmsr = `👋 Hai *${nms} @${nm.split("@")[0]}*, `
     let msg = {
         rowner: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Perintah ini hanya dapat digunakan oleh *OWWNER* !`,
+${nmsr} Perintah ini hanya dapat digunakan oleh *OWWNER* !`,
         owner: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Perintah ini hanya dapat digunakan oleh *Owner Bot* !`,
+${nmsr} Perintah ini hanya dapat digunakan oleh *Owner Bot* !`,
         mods: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Perintah ini hanya dapat digunakan oleh *Moderator* !`,
+${nmsr} Perintah ini hanya dapat digunakan oleh *Moderator* !`,
         premium: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Perintah ini hanya untuk member *Premium* !`,
+${nmsr} Perintah ini hanya untuk member *Premium* !`,
         group: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Perintah ini hanya dapat digunakan di grup !`,
+${nmsr} Perintah ini hanya dapat digunakan di grup !`,
         private: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Perintah ini hanya dapat digunakan di Chat Pribadi !`,
+${nmsr} Perintah ini hanya dapat digunakan di Chat Pribadi !`,
         admin: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Perintah ini hanya untuk *Admin* grup !`,
+${nmsr} Perintah ini hanya untuk *Admin* grup !`,
         botAdmin: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Jadikan bot sebagai *Admin* untuk menggunakan perintah ini !`,
+${nmsr} Jadikan bot sebagai *Admin* untuk menggunakan perintah ini !`,
         unreg: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar Hinata.18* !`,
+${nmsr} Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar Hinata.18* !`,
         nsfw: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} NSFW tidak aktif, Silahkan hubungi Team Bot Discussion untuk mengaktifkan fitur ini !`,
+${nmsr} NSFW tidak aktif, Silahkan hubungi Team Bot Discussion untuk mengaktifkan fitur ini !`,
         rpg: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan fitur ini !`,
+${nmsr} RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan fitur ini !`,
         restrict: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
-${htjava} Fitur ini di *disable* !`
+${nmsr} Fitur ini di *disable* !`
     }[type]
-    if (msg) return conn.sendHydrated(m.chat, msg, wm, logo, null, null, nomorown, nameown, [
-      ['🔖 Ok', 'Huuu'],
-      ['ℹ️ Tes', 'Tes']
-    ], null)
+    if (msg) return this.sendButton(m.chat, msg, wm, hwaifu.getRandom(), [['🔖 Ok', 'Huuu'],
+      ['ℹ️ Tes', 'Tes']], m, { mentions: this.parseMention(nmsr) })
 }
 
 let file = global.__filename(import.meta.url, true)
