@@ -34,6 +34,7 @@ Tapi
       noteMessage: {
       extendedTextMessage: {
       text: caption,
+      mentions: conn.parseMention(caption),
       contextInfo: {
       externalAdReply: {
       showAdAttribution: true
