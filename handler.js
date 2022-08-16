@@ -1309,13 +1309,16 @@ let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam pen
             }
             break
         case 'promote':
-            text = (chat.sPromote || this.spromote || conn.spromote || '@user *is now Admin*')
-            this.send2ButtonDoc(id, text, author, '🔖 Ok', 'Huuu', 'ℹ️ Matikan Fitur ini', '.disable detect', null, null)
-            break
-        case 'demote':
-            text = (chat.sDemote || this.sdemote || conn.sdemote || '@user *is no longer Admin*')
-            this.send2ButtonDoc(id, text, author, '🔖 Ok', 'Huuu', 'ℹ️ Matikan Fitur ini', '.disable detect', null, null)
-            break
+                text = (chat.sPromote || this.spromote || conn.spromote || '@user ```is now Admin```')
+            case 'demote':
+                if (!text) text = (chat.sDemote || this.sdemote || conn.sdemote || '@user ```is no longer Admin```')
+                text = text.replace('@user', '@' + participants[0].split('@')[0])
+                if (chat.detect) this.sendMessage(id, text, {
+                    contextInfo: {
+                        mentionedJid: this.parseMention(text)
+                    }
+                })
+                break
     }
 }
 
