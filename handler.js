@@ -1311,22 +1311,20 @@ let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam pen
         case 'promote':
         case 'demote':
             if (chat.detect) {
-                for (let uper of participants) {
                     let pr
                     let prgc
                     try {
-                        pr = await this.profilePictureUrl(uper, 'image')
+                        pr = hwaifu.getRandom()
                         prgc = await this.profilePictureUrl(id, 'image')
                     } catch {
-                    pr = hwaifu.getRandom()
+                    pr = Buffer.alloc(0)
                     prgc = hwaifu.getRandom()
                     } finally {
-                       text = (action === 'promote' ?  (chat.sPromote || this.spromote || conn.spromote || '@uper *is now Admin*') :
-                            (chat.sDemote || this.sdemote || conn.sdemote || '@uper *is no longer Admin*')
-  
-  let namep = await this.getName(uper)
+                       text = (action === 'promote' ?  (chat.sPromote || this.spromote || conn.spromote || '@user *is now Admin*') :
+                            (chat.sDemote || this.sdemote || conn.sdemote || '@user *is no longer Admin*')
+  let namep = await this.getName(user)
     await conn.sendButton(id, text, action == 'promote' ? wmwel : wmlea, Buffer.alloc(0), [[action == 'promote' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'promote' ? 'tes' : 'Huuu'], [action == 'promote' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'promote' ? '/menulist' : 'Huuu']], null, { quoted: fpayment, mimetype: mim_.getRandom(), fileName: ucapan, pageCount: fpagedoc, fileLength: fsizedoc, seconds: fsizedoc, jpegThumbnail: await( await fetch(prgc)).buffer(), contextInfo: {
-    mentionedJid: [uper],
+    mentionedJid: [user],
           externalAdReply :{
           showAdAttribution: true,
     mediaUrl: lin_.getRandom(),
@@ -1339,7 +1337,6 @@ let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam pen
      }}
   })
                     }
-                }
             }
             break
     }
