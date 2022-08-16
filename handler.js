@@ -1412,7 +1412,7 @@ ${nmsr} RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan
         restrict: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
 ${nmsr} Fitur ini di *disable* !`
     }[type]
-    if (msg) return this.sendButton(m.chat, msg, wm, hwaifu.getRandom(), [['🔖 Ok', 'Huuu'],
+    if (msg) return conn.sendButton(m.chat, msg, wm, logo, [['🔖 Ok', 'Huuu'],
       ['ℹ️ Tes', 'Tes']], m, { mentions: this.parseMention(nmsr) })
 }
 
