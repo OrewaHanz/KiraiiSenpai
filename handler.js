@@ -1314,7 +1314,7 @@ let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam pen
            if (!text)
                 text = (chat.sDemote || this.sdemote || conn.sdemote || '@user *is no longer Admin*')
             if (chat.detect) return this.send2ButtonDoc(id, text, wm, hwaifu.getRandom(), '🔖 Ok', 'Huuu',
-      'ℹ️ Matikan Fitur ini', '/disable detect' null, { quoted: fkontak,
+      'ℹ️ Matikan Fitur ini', '/disable detect' null, {
       contextInfo: {
     externalAdReply :{
     mediaUrl: sig,
@@ -1322,7 +1322,7 @@ let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam pen
     description: wm, 
     title: '👋 Hai, ' + ucapan,
     body: botdate,
-    thumbnail: await( await fetch(logo)).buffer(),
+    thumbnail: Buffer.alloc(0),
     sourceUrl: sgc
      }}
   })
@@ -1425,7 +1425,7 @@ ${nmsr} Fitur ini di *disable* !`
     description: wm, 
     title: '👋 Hai, ' + ucapan,
     body: botdate,
-    thumbnail: await( await fetch(logo)).buffer(),
+    thumbnail: Buffer.alloc(0),
     sourceUrl: sgc
      }}
   })
