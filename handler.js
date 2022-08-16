@@ -1310,10 +1310,11 @@ let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam pen
             break
         case 'promote':
             text = (chat.sPromote || this.spromote || conn.spromote || '@user *is now Admin*')
+            this.send2ButtonDoc(id, text, author, '🔖 Ok', 'Huuu', 'ℹ️ Matikan Fitur ini', '.disable detect', null, null)
+            break
         case 'demote':
-           if (!text)
-                text = (chat.sDemote || this.sdemote || conn.sdemote || '@user *is no longer Admin*')
-            if (chat.detect) return this.send2ButtonDoc(id, text, author, '🔖 Ok', 'Huuu', 'ℹ️ Matikan Fitur ini', '.disable detect', null, null)
+            text = (chat.sDemote || this.sdemote || conn.sdemote || '@user *is no longer Admin*')
+            this.send2ButtonDoc(id, text, author, '🔖 Ok', 'Huuu', 'ℹ️ Matikan Fitur ini', '.disable detect', null, null)
             break
     }
 }
@@ -1402,7 +1403,7 @@ ${nmsr} RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan
         restrict: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
 ${nmsr} Fitur ini di *disable* !`
     }[type]
-    if (msg) return conn.send2ButtonDoc(m.chat, msg, author, '🔖 Ok', 'Huuu', 'ℹ️ Menu', '.menu', null, null)
+    if (msg) return conn.send2ButtonDoc(m.chat, msg, author, '🔖 Ok', 'Huuu', 'ℹ️ Menu', '.menu', null, fakeig)
 }
 
 let file = global.__filename(import.meta.url, true)
