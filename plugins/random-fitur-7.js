@@ -69,12 +69,16 @@ if (command == 'mainslot') {
 let f = await fetch(`https://mysakura.herokuapp.com/api/slot?apikey=sakura404`)
 let x = await f.json()
 let rep = x.score
-let skor = rep.repeat(3)
-global.db.data.users[m.sender].limit += skor
+let skor = rep * 10
+let pslot = global.db.data.users[m.sender]
+pslot.limit += skor
+pslot.money += rep * 10000
+let mony = rep * 10000
 let caption = `${x.slot}
 
 *Hasil:* ${x.hasil}
-*+ Limit:* ${skor}`
+*+ Limit:* ${skor}
+*+ Money:* ${mony}`
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command}`]
             ], m, fdoc)
