@@ -69,15 +69,15 @@ global.xckey = 'BOhjM2hUVn'
 */
 
 /*Number*/
-global.nomorbot = '19706388373'
+global.nomorbot = '60168487499'
 global.nomorown = '60169611989'
-global.namebot = 'KiraiiBotOFC'
+global.namebot = ''KiraiiBotzOFC'
 global.nameown = '「 KiraiiSenpai👑 」'
 
 /*Watermark*/
-global.wm = 'KiraiiBotOFC'
-global.wm2 = 'KiraiiBotOFC'
-global.wm3 = '⫹⫺ KiraiiBotOFC'
+global.wm = 'KiraiiBOT'
+global.wm2 = 'KiraiiBOT'
+global.wm3 = '⫹⫺ KiraiiBOT'
 global.botdate = `⫹⫺ Date :  ${moment.tz('Asia/Jakarta').format('DD/MM/YY')}`
 global.bottime = `𝗧 𝗜 𝗠 𝗘 : ${moment.tz('Asia/Jakarta').format('HH:mm:ss')}`
 global.titlebot = `⫹⫺ Time Sever : ${moment.tz('Asia/Jakarta').format('HH:mm:ss')}\n⫹⫺ Date Server :  ${moment.tz('Asia/Jakarta').format('DD/MM/YY')}`
@@ -418,14 +418,14 @@ global.htjava = '⫹⫺'
 
 /*Watermark*/
 global.stickpack = '.'
-global.stickauth = 'KiraiiBotOFC'
+global.stickauth = 'KiraiiBOT'
 global.packname = 'KiraiiSenpai👑'
 global.author = 'KiraiiBotOFC X KiraiiSenpai👑'
 global.multiplier = 10
 
 /*Pesan*/
-global.eror = 'Erorr...'
-global.wait = 'Wait...'
+global.eror = 'Error Memek...'
+global.wait = 'Wait a sec Bitch...'
 global.render = 'Render...'
 global.webs = 'https://s.id/Cerdasin62'
 global.logo = 'https://i.pinimg.com/564x/f7/d2/e4/f7d2e48fd59a8c01cd396bfc70b0a2d1.jpg'
