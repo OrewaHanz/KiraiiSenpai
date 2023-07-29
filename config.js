@@ -6,7 +6,7 @@ import moment from 'moment-timezone'
 
 /*Oᴡɴᴇʀ number*/
 global.owner = [
-  ['60169611989', '️KiraiiSenpai👑', true]
+  ['60146144525', '️Lie <3', true]
 ]
 global.mods = []
 global.prems = []
@@ -69,15 +69,15 @@ global.xckey = 'BOhjM2hUVn'
 */
 
 /*Number*/
-global.nomorbot = '60168487499'
-global.nomorown = '60169611989'
-global.namebot = ''KiraiiBotzOFC'
-global.nameown = '「 KiraiiSenpai👑 」'
+global.nomorbot = '601112637393'
+global.nomorown = '60146144525'
+global.namebot = ''OctagramsBotzOFC'
+global.nameown = '「 Liefryou <3 」'
 
 /*Watermark*/
-global.wm = 'KiraiiBOT'
-global.wm2 = 'KiraiiBOT'
-global.wm3 = '⫹⫺ KiraiiBOT'
+global.wm = 'XXX'
+global.wm2 = 'XXX'
+global.wm3 = '⫹⫺ OctagramsBotzOFC'
 global.botdate = `⫹⫺ Date :  ${moment.tz('Asia/Jakarta').format('DD/MM/YY')}`
 global.bottime = `𝗧 𝗜 𝗠 𝗘 : ${moment.tz('Asia/Jakarta').format('HH:mm:ss')}`
 global.titlebot = `⫹⫺ Time Sever : ${moment.tz('Asia/Jakarta').format('HH:mm:ss')}\n⫹⫺ Date Server :  ${moment.tz('Asia/Jakarta').format('DD/MM/YY')}`
@@ -418,9 +418,9 @@ global.htjava = '⫹⫺'
 
 /*Watermark*/
 global.stickpack = '.'
-global.stickauth = 'KiraiiBOT'
-global.packname = 'KiraiiSenpai👑'
-global.author = 'KiraiiBotOFC X KiraiiSenpai👑'
+global.stickauth = 'Octagrams-MD'
+global.packname = 'Octagrams-MD'
+global.author = 'Lie X Octagrams Destructor '
 global.multiplier = 10
 
 /*Pesan*/
